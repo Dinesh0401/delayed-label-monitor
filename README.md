@@ -28,3 +28,7 @@ The contribution under investigation is whether delay correction improves operat
 4. Build a working monitor and evaluate decisions with consenting ML practitioners.
 
 Commit each reproducible change with a message explaining what it establishes. Record unfavorable results alongside positive ones.
+
+## Reproduce the first experiment
+
+Run `python3 replay.py` and compare its output with results.csv. Each row simulates 100 predictions for the monitored region. The monitor alerts below 70% accuracy. Reporting delays are assigned by correctness to isolate selection bias. The example is deterministic and demonstrates a failure mechanism. Evaluating a correction on real streams is still pending.

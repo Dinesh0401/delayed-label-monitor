@@ -1,0 +1,5 @@
+scenario,observed_day1,pending_day1,final_day5,day1_alert
+reference,0.8000,50,0.8000,False
+reporting_change,0.6154,74,0.8000,True
+quality_loss,0.6000,50,0.6000,True
+both,0.3750,68,0.6000,True
