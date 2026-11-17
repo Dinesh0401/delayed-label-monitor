@@ -84,3 +84,8 @@ def metrics(at: AwareDatetime | None = None, since: AwareDatetime | None = None)
 @app.get("/", include_in_schema=False)
 def dashboard():
     return FileResponse(Path(__file__).with_name("dashboard.html"))
+
+
+@app.get("/delivery-study", include_in_schema=False)
+def delivery_study():
+    return FileResponse(Path(__file__).parent / "delivery-results" / "report.html")

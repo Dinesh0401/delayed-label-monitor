@@ -2,7 +2,7 @@
 <style>body{font:17px/1.5 Inter,system-ui;color:#172e33;background:#f4f7f5;max-width:900px;margin:8vh auto;padding:1rem}h1{font-size:clamp(2rem,5vw,4rem);letter-spacing:-.06em;margin:0}table{border-collapse:collapse;width:100%;background:white}td,th{padding:.7em;text-align:left;border-bottom:1px solid #cbd6d0}section{overflow:auto}a{color:#106352}</style>
 <h1>Prediction reliability</h1><p>Accuracy by group across all received predictions. The range includes every possible outcome for pending labels.</p>
 <section><table><thead><tr><th>Group<th>Predictions<th>Pending<th>Observed accuracy<th>Possible final accuracy</tr></thead><tbody id="rows"></tbody></table></section>
-<p id="status" role="status"></p><a href="/docs">Submit events through the API</a>
+<p id="status" role="status"></p><a href="/docs">Submit events through the API</a> · <a href="/delivery-study">Real delivery study</a>
 <script>
 const pct = n => n === null ? '—' : (100*n).toFixed(1)+'%';
 async function refresh(){
