@@ -57,3 +57,17 @@ See historical-results.txt for two retrospective cutoffs. On May 10 the IBM coho
 ## Research follow-up
 
 Elapsed-time weighting has prior art in conversion prediction ([Yang et al., AAAI 2021](https://doi.org/10.1609/aaai.v35i5.16587)). Compare learned corrections against the observed-label and fully resolved baselines at matched false-alarm rates. For the logistics study, investigate [Olist's public dataset](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) and establish precisely when each label becomes knowable, including missed deadlines and cancellation. No logistics performance result or novelty claim has been established.
+
+## Budgeted subgroup adaptation experiment
+
+Run `python benchmark.py` to regenerate benchmark-results.csv using only the Python standard library. Each of 20 paired seeds has 16 warm-up days and 64 scored days, with 80 large-group and 8 small-group observations per day. The binary feature initially predicts the label with 12% noise. Under harmful drift the small group's mapping reverses on day 24. Under a reporting shift the early arrival probability for its negative labels drops on day 20. Labels arrive after one or five days. Simulated drift is abrupt and deliberately recoverable by this small hypothesis class.
+
+Within each group and feature stratum, r is the current model error probability. The early reporting probabilities for errors and correct predictions are a and b. Estimate each from the most recent 12 fully resolved daily cohorts with Beta(1,1) smoothing. For four recent cohorts the outcome is either visible or pending. For E visible errors, C visible correct labels and U pending cases, the likelihood is proportional to:
+
+    r^E (1-r)^C [r(1-a) + (1-r)(1-b)]^U
+
+An equally weighted 160-point grid approximates a uniform prior on r. A flip changes expected error from r to 1-r. Thus a gain exceeding ten percentage points requires r > 0.55. Trigger when both feature strata individually assign more than 90% posterior probability to that gain. This conjunction is a heuristic and does not give a 90% joint guarantee. Under a shared two-refit budget, choose the eligible group with the strongest weaker-stratum evidence. Refit by minimizing arrived-label errors over two rules, identity and inversion. Outcomes from the decision day enter retrospective scoring only. Pending feature counts use observable inputs.
+
+Comparators use the same streams and refit training rule: frozen model, scheduled refits (days 16 and 32, ties favor the small group), pooled arrived-error trigger, and subgroup arrived-error trigger. The unchanged-refit metric counts identical parameters after fitting; a changed model can also be harmful. Every policy including the proposed one is heuristic. No global optimality, group fairness guarantee or real-world improvement has been demonstrated. Each unit of budget represents one refit, independent of compute time.
+
+With simultaneous drift and slower reporting, small-group errors averaged 17.207% versus 17.246% for the simple subgroup trigger. Both far outperformed pooled monitoring in this constructed setting. With drift alone the simple subgroup trigger was better. Reporting probabilities are treated as point estimates and may be inaccurate after a delay shift. Future work should vary drift strength, group size and delay mechanisms and compare detection delay at matched false-alarm rates on independent calibration and test periods. This experiment runs offline; the hosted demo illustrates pending labels.
