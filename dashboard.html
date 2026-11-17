@@ -1,0 +1,16 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Delayed Label Monitor</title>
+<style>body{font:17px/1.5 Inter,system-ui;color:#172e33;background:#f4f7f5;max-width:900px;margin:8vh auto;padding:1rem}h1{font-size:clamp(2rem,5vw,4rem);letter-spacing:-.06em;margin:0}table{border-collapse:collapse;width:100%;background:white}td,th{padding:.7em;text-align:left;border-bottom:1px solid #cbd6d0}section{overflow:auto}a{color:#106352}</style>
+<h1>Prediction reliability</h1><p>Accuracy by group across all received predictions. The range includes every possible outcome for pending labels.</p>
+<section><table><thead><tr><th>Group<th>Predictions<th>Pending<th>Observed accuracy<th>Possible final accuracy</tr></thead><tbody id="rows"></tbody></table></section>
+<p id="status" role="status"></p><a href="/docs">Submit events through the API</a>
+<script>
+const pct = n => n === null ? '—' : (100*n).toFixed(1)+'%';
+async function refresh(){
+try{
+ const res=await fetch('/metrics',{cache:'no-store'}); if(!res.ok)throw Error();
+ const data=await res.json();rows.replaceChildren();
+ for(const d of data){const row=rows.insertRow();for(const v of [d.segment,d.total,d.pending,pct(d.observed),pct(d.lower)+' – '+pct(d.upper)])row.insertCell().textContent=v;}
+ document.querySelector('#status').textContent=data.length?'Updated '+new Date().toLocaleTimeString():'Waiting for the first prediction.';
+}catch{document.querySelector('#status').textContent='Connection interrupted. Reconnecting…';}
+setTimeout(refresh,2000);}
+refresh();</script></html>
