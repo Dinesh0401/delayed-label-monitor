@@ -1,0 +1,92 @@
+{
+  "calibration_seeds": [
+    0,
+    99
+  ],
+  "test_seeds": [
+    1000,
+    1099
+  ],
+  "rows": [
+    {
+      "scenario": "stable",
+      "method": "arrived",
+      "threshold": 0.14516129032258066,
+      "false_alarm_runs": 0,
+      "runs": 100,
+      "eligible_runs": 0,
+      "detected_runs": 0,
+      "mean_detection_delay": null
+    },
+    {
+      "scenario": "stable",
+      "method": "censored",
+      "threshold": 0.29665722739182276,
+      "false_alarm_runs": 0,
+      "runs": 100,
+      "eligible_runs": 0,
+      "detected_runs": 0,
+      "mean_detection_delay": null
+    },
+    {
+      "scenario": "delay",
+      "method": "arrived",
+      "threshold": 0.14516129032258066,
+      "false_alarm_runs": 2,
+      "runs": 100,
+      "eligible_runs": 0,
+      "detected_runs": 0,
+      "mean_detection_delay": null
+    },
+    {
+      "scenario": "delay",
+      "method": "censored",
+      "threshold": 0.29665722739182276,
+      "false_alarm_runs": 100,
+      "runs": 100,
+      "eligible_runs": 0,
+      "detected_runs": 0,
+      "mean_detection_delay": null
+    },
+    {
+      "scenario": "harm",
+      "method": "arrived",
+      "threshold": 0.14516129032258066,
+      "false_alarm_runs": 0,
+      "runs": 100,
+      "eligible_runs": 100,
+      "detected_runs": 100,
+      "mean_detection_delay": 6.53
+    },
+    {
+      "scenario": "harm",
+      "method": "censored",
+      "threshold": 0.29665722739182276,
+      "false_alarm_runs": 0,
+      "runs": 100,
+      "eligible_runs": 100,
+      "detected_runs": 100,
+      "mean_detection_delay": 5.7
+    },
+    {
+      "scenario": "both",
+      "method": "arrived",
+      "threshold": 0.14516129032258066,
+      "false_alarm_runs": 0,
+      "runs": 100,
+      "eligible_runs": 100,
+      "detected_runs": 86,
+      "mean_detection_delay": 14.965116279069768
+    },
+    {
+      "scenario": "both",
+      "method": "censored",
+      "threshold": 0.29665722739182276,
+      "false_alarm_runs": 0,
+      "runs": 100,
+      "eligible_runs": 100,
+      "detected_runs": 100,
+      "mean_detection_delay": 3.49
+    }
+  ]
+}

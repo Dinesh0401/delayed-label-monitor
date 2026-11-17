@@ -90,3 +90,13 @@ Open delivery-results/report.html for the results. forecast.csv, weekly.csv and 
 ## Does the regional result depend on one week?
 
 Run `python weekly_stability.py` on the committed held-out weekly aggregates. The paired gain equals the arrived-label absolute error minus the corrected absolute error, in percentage points. Positive values favor correction. The output delivery-results/stability.csv includes week-level wins, the median, an order-count-weighted mean of cohort gains, and the range of means after omitting each week in turn. This is a sensitivity analysis on the same test period. The omission range is not a confidence interval or an independent replication.
+
+## Independent detection calibration
+
+Run `python detection_study.py`. Seeds 0–99 calibrate two run-maximum thresholds at the empirical 95th percentile of stable streams. Independent seeds 1000–1099 test stable, reporting-only, harmful-drift, and combined changes. A stream has 12 observations per day for 70 days. Labels arrive after 1 or 9 days; monitoring windows include the preceding 7 days. Drift begins on day 30. The model error rises from 0.12 to 0.38. Both methods use the same generated events.
+
+The censored method assumes initial early-arrival probabilities are known (0.3 for errors and 0.8 for correct predictions). It keeps them fixed during test. In reporting-shift scenarios they become 0.08 and 0.45. Those scenarios explicitly test misspecification. Only predictions whose arrival timestamp is at or before each decision time contribute observed outcomes. Candidate error probabilities use a uniform prior and the existing numerical posterior.
+
+Held-out stable streams produced zero alarms for both methods, which is an empirical outcome rather than a guaranteed error rate. Harmful-drift detection averaged 5.70 days with censoring versus 6.53 days with arrived labels. However reporting-only shifts caused alarms in all 100 censored runs versus 2 arrived-label runs. This failure prevents claiming an effective general drift detector. Detection rates use only streams without a pre-change alarm; delay averages include only detected streams. Next work should jointly model delay changes and performance changes, calibrate under multiple null delay regimes, and evaluate on fresh seeds.
+
+The hosted laboratory illustrates two groups and adjustable reporting scenarios using JavaScript. Its illustrative 25% error alert is separate from this calibrated offline Python benchmark.
