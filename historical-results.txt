@@ -1,0 +1,3 @@
+Replayed 1556 events
+2021-05-10 [{'segment': 'IBM', 'total': 3, 'pending': 2, 'observed': 1.0, 'lower': 0.3333333333333333, 'upper': 1.0}, {'segment': 'MSFT', 'total': 3, 'pending': 1, 'observed': 0.5, 'lower': 0.3333333333333333, 'upper': 0.6666666666666666}]
+2021-06-30 [{'segment': 'IBM', 'total': 4, 'pending': 1, 'observed': 1.0, 'lower': 0.75, 'upper': 1.0}, {'segment': 'MSFT', 'total': 4, 'pending': 1, 'observed': 0.3333333333333333, 'lower': 0.25, 'upper': 0.5}]

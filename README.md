@@ -32,3 +32,28 @@ Commit each reproducible change with a message explaining what it establishes. R
 ## Reproduce the first experiment
 
 Run `python3 replay.py` and compare its output with results.csv. Each row simulates 100 predictions for the monitored region. The monitor alerts below 70% accuracy. Reporting delays are assigned by correctness to isolate selection bias. The example is deterministic and demonstrates a failure mechanism. Evaluating a correction on real streams is still pending.
+
+## Run the live monitor
+
+Use Python 3.12. In the project directory run:
+
+    python -m pip install -r requirements.txt
+    python -m uvicorn monitor:app --host 127.0.0.1 --port 8000
+
+Open http://127.0.0.1:8000 for the dashboard. Use /docs to send binary predictions and outcomes, or run the historical demo from a second terminal:
+
+    python historical_replay.py historical-input.csv
+
+SQLite retains incoming events between restarts. Set MONITOR_DB to choose a new database. Exact retries are idempotent. The outcome endpoint requires an existing prediction. The dashboard polls every two seconds. Use GET /metrics with timezone-aware since and at parameters to inspect a prediction cohort as of a cutoff. Timestamps are producer-supplied event times. The local demo assumes a trusted event producer. It has no authentication.
+
+For N predictions, C confirmed correct and U pending, final cohort accuracy lies between C/N and (C+U)/N. These are exact missing-outcome bounds, not statistical confidence intervals. They can be wide for small cohorts. The dashboard shows cumulative metrics; use a time window for incident analysis.
+
+## Historical integration experiment
+
+Source: IBM and MSFT columns of Matplotlib sample_data/Stocks.csv (source credited there to Yahoo Finance). The included extract preserves the original dates and values. Historical dates serve as replay ticks, not verified market publication timestamps. The predictor repeats the last observed direction. Outcomes use the next observation. Correct IBM predictions receive an additional simulated 21-day reporting delay. Events are posted in chronological order through HTTP. The market data exercise tests the service mechanics; delivery monitoring remains the intended application.
+
+See historical-results.txt for two retrospective cutoffs. On May 10 the IBM cohort had one correct result and two unresolved outcomes. Observed accuracy was 100%, while final accuracy could still be as low as one third.
+
+## Research follow-up
+
+Elapsed-time weighting has prior art in conversion prediction ([Yang et al., AAAI 2021](https://doi.org/10.1609/aaai.v35i5.16587)). Compare learned corrections against the observed-label and fully resolved baselines at matched false-alarm rates. For the logistics study, investigate [Olist's public dataset](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) and establish precisely when each label becomes knowable, including missed deadlines and cancellation. No logistics performance result or novelty claim has been established.
