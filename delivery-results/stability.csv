@@ -1,0 +1,4 @@
+region,paired_weeks,weeks_improved,mean_gain_pp,median_gain_pp,order_weighted_gain_pp,leave_one_week_out_min_pp,leave_one_week_out_max_pp
+North,19,7,0.78127,-2.4987,1.38447,-1.03815,1.93274
+Other,23,17,1.34175,0.5937,1.56179,1.06238,1.47045
+SP,23,4,-1.15261,-0.74149,-1.33428,-1.26075,-0.88713
