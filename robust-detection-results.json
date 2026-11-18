@@ -1,0 +1,236 @@
+{
+  "calibration_seeds": [
+    2000,
+    2099
+  ],
+  "test_seeds": [
+    3000,
+    3299
+  ],
+  "alpha": 0.05,
+  "calibration_rank": 96,
+  "calibration_regimes": [
+    "stable",
+    "delay"
+  ],
+  "per_regime_thresholds": {
+    "stable": {
+      "arrived": 0.14285714285714285,
+      "censored": 0.294968512121058
+    },
+    "delay": {
+      "arrived": 0.12698412698412698,
+      "censored": 0.6418604651162791
+    }
+  },
+  "rows": [
+    {
+      "scenario": "stable",
+      "protocol": "stable_only",
+      "method": "arrived",
+      "threshold": 0.14285714285714285,
+      "runs": 300,
+      "false_alarm_runs": 16,
+      "eligible_runs": null,
+      "detected_runs": null,
+      "missed_runs": null,
+      "mean_detection_delay": null,
+      "mean_capped_delay": null
+    },
+    {
+      "scenario": "stable",
+      "protocol": "stable_only",
+      "method": "censored",
+      "threshold": 0.294968512121058,
+      "runs": 300,
+      "false_alarm_runs": 13,
+      "eligible_runs": null,
+      "detected_runs": null,
+      "missed_runs": null,
+      "mean_detection_delay": null,
+      "mean_capped_delay": null
+    },
+    {
+      "scenario": "stable",
+      "protocol": "reporting_robust",
+      "method": "arrived",
+      "threshold": 0.14285714285714285,
+      "runs": 300,
+      "false_alarm_runs": 16,
+      "eligible_runs": null,
+      "detected_runs": null,
+      "missed_runs": null,
+      "mean_detection_delay": null,
+      "mean_capped_delay": null
+    },
+    {
+      "scenario": "stable",
+      "protocol": "reporting_robust",
+      "method": "censored",
+      "threshold": 0.6418604651162791,
+      "runs": 300,
+      "false_alarm_runs": 0,
+      "eligible_runs": null,
+      "detected_runs": null,
+      "missed_runs": null,
+      "mean_detection_delay": null,
+      "mean_capped_delay": null
+    },
+    {
+      "scenario": "delay",
+      "protocol": "stable_only",
+      "method": "arrived",
+      "threshold": 0.14285714285714285,
+      "runs": 300,
+      "false_alarm_runs": 10,
+      "eligible_runs": null,
+      "detected_runs": null,
+      "missed_runs": null,
+      "mean_detection_delay": null,
+      "mean_capped_delay": null
+    },
+    {
+      "scenario": "delay",
+      "protocol": "stable_only",
+      "method": "censored",
+      "threshold": 0.294968512121058,
+      "runs": 300,
+      "false_alarm_runs": 300,
+      "eligible_runs": null,
+      "detected_runs": null,
+      "missed_runs": null,
+      "mean_detection_delay": null,
+      "mean_capped_delay": null
+    },
+    {
+      "scenario": "delay",
+      "protocol": "reporting_robust",
+      "method": "arrived",
+      "threshold": 0.14285714285714285,
+      "runs": 300,
+      "false_alarm_runs": 10,
+      "eligible_runs": null,
+      "detected_runs": null,
+      "missed_runs": null,
+      "mean_detection_delay": null,
+      "mean_capped_delay": null
+    },
+    {
+      "scenario": "delay",
+      "protocol": "reporting_robust",
+      "method": "censored",
+      "threshold": 0.6418604651162791,
+      "runs": 300,
+      "false_alarm_runs": 18,
+      "eligible_runs": null,
+      "detected_runs": null,
+      "missed_runs": null,
+      "mean_detection_delay": null,
+      "mean_capped_delay": null
+    },
+    {
+      "scenario": "harm",
+      "protocol": "stable_only",
+      "method": "arrived",
+      "threshold": 0.14285714285714285,
+      "runs": 300,
+      "false_alarm_runs": 6,
+      "eligible_runs": 294,
+      "detected_runs": 294,
+      "missed_runs": 0,
+      "mean_detection_delay": 6.166666666666667,
+      "mean_capped_delay": 6.166666666666667
+    },
+    {
+      "scenario": "harm",
+      "protocol": "stable_only",
+      "method": "censored",
+      "threshold": 0.294968512121058,
+      "runs": 300,
+      "false_alarm_runs": 4,
+      "eligible_runs": 296,
+      "detected_runs": 296,
+      "missed_runs": 0,
+      "mean_detection_delay": 5.125,
+      "mean_capped_delay": 5.125
+    },
+    {
+      "scenario": "harm",
+      "protocol": "reporting_robust",
+      "method": "arrived",
+      "threshold": 0.14285714285714285,
+      "runs": 300,
+      "false_alarm_runs": 6,
+      "eligible_runs": 294,
+      "detected_runs": 294,
+      "missed_runs": 0,
+      "mean_detection_delay": 6.166666666666667,
+      "mean_capped_delay": 6.166666666666667
+    },
+    {
+      "scenario": "harm",
+      "protocol": "reporting_robust",
+      "method": "censored",
+      "threshold": 0.6418604651162791,
+      "runs": 300,
+      "false_alarm_runs": 0,
+      "eligible_runs": 300,
+      "detected_runs": 1,
+      "missed_runs": 299,
+      "mean_detection_delay": 12,
+      "mean_capped_delay": 39.906666666666666
+    },
+    {
+      "scenario": "both",
+      "protocol": "stable_only",
+      "method": "arrived",
+      "threshold": 0.14285714285714285,
+      "runs": 300,
+      "false_alarm_runs": 6,
+      "eligible_runs": 294,
+      "detected_runs": 255,
+      "missed_runs": 39,
+      "mean_detection_delay": 14.631372549019607,
+      "mean_capped_delay": 17.996598639455783
+    },
+    {
+      "scenario": "both",
+      "protocol": "stable_only",
+      "method": "censored",
+      "threshold": 0.294968512121058,
+      "runs": 300,
+      "false_alarm_runs": 4,
+      "eligible_runs": 296,
+      "detected_runs": 296,
+      "missed_runs": 0,
+      "mean_detection_delay": 3.3175675675675675,
+      "mean_capped_delay": 3.3175675675675675
+    },
+    {
+      "scenario": "both",
+      "protocol": "reporting_robust",
+      "method": "arrived",
+      "threshold": 0.14285714285714285,
+      "runs": 300,
+      "false_alarm_runs": 6,
+      "eligible_runs": 294,
+      "detected_runs": 255,
+      "missed_runs": 39,
+      "mean_detection_delay": 14.631372549019607,
+      "mean_capped_delay": 17.996598639455783
+    },
+    {
+      "scenario": "both",
+      "protocol": "reporting_robust",
+      "method": "censored",
+      "threshold": 0.6418604651162791,
+      "runs": 300,
+      "false_alarm_runs": 0,
+      "eligible_runs": 300,
+      "detected_runs": 292,
+      "missed_runs": 8,
+      "mean_detection_delay": 13.14041095890411,
+      "mean_capped_delay": 13.856666666666667
+    }
+  ]
+}

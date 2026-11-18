@@ -100,3 +100,24 @@ The censored method assumes initial early-arrival probabilities are known (0.3 f
 Held-out stable streams produced zero alarms for both methods, which is an empirical outcome rather than a guaranteed error rate. Harmful-drift detection averaged 5.70 days with censoring versus 6.53 days with arrived labels. However reporting-only shifts caused alarms in all 100 censored runs versus 2 arrived-label runs. This failure prevents claiming an effective general drift detector. Detection rates use only streams without a pre-change alarm; delay averages include only detected streams. Next work should jointly model delay changes and performance changes, calibrate under multiple null delay regimes, and evaluate on fresh seeds.
 
 The hosted laboratory illustrates two groups and adjustable reporting scenarios using JavaScript. Its illustrative 25% error alert is separate from this calibrated offline Python benchmark.
+
+## Reporting-regime calibration ablation (2026-11-18)
+
+Run `python robust_detection_study.py` and `python -m unittest test_robust_detection -v` (standard library only). This follow-up preserves both detector scores and the original four data-generating scenarios. Calibration uses fresh seeds 2000–2099; evaluation uses 300 independent seeds 3000–3299 per scenario. Scenarios share seed-level random draws for paired comparisons. Do not treat the four scenarios as 1,200 independent seeds.
+
+For each method and calibration regime, take each run's maximum score over days 12–69. With n=100 and alpha=0.05, set the threshold to order statistic ceil((n+1)(1-alpha))=96. An alarm requires a score strictly above the threshold. The stable-only ablation uses the stable regime threshold. The reporting-robust ablation uses the maximum of stable and reporting-only regime thresholds. Both ablations use the same rank convention; the original study used rank 95, so its archived results are not overwritten. Calibration happens before evaluation and never uses harmful test outcomes.
+
+| Censored detector outcome | Stable-only calibration | Reporting-robust calibration |
+| --- | ---: | ---: |
+| Stable false alarms | 13/300 | 0/300 |
+| Reporting-only false alarms | 300/300 | 18/300 |
+| Harm-only detections among eligible runs | 296/296 | 1/300 |
+| Harm-only pre-change alarms | 4/300 | 0/300 |
+| Combined-change detections among eligible runs | 296/296 | 292/300 |
+| Combined-change mean capped delay | 3.32 days | 13.86 days |
+
+The arrived-label baseline's threshold is unchanged by broader calibration. It detects 294/294 eligible harm-only streams, with six pre-change alarms and a mean delay of 6.17 days. Under combined changes it detects 255/294 eligible streams; the mean capped delay is 18.00 days. All rows and thresholds are in `robust-detection-results.json`.
+
+This is a negative result: broader null calibration reduces reporting-shift false alarms but nearly eliminates censored-detector power for harm-only drift. A high score can reflect misspecified reporting probabilities rather than increased model error. The observed reporting-only false-alarm rate remains 6%, not a demonstrated 5% guarantee for this fitted threshold. No parameter was retuned after seeing these evaluation results.
+
+Evaluation excludes pre-change-alarmed runs from harmful-drift detection denominators and reports those exclusions. Conditional mean delay includes detections only. Mean capped delay assigns the 40-day remaining monitoring horizon to every eligible miss, making failures visible rather than rewarding a detector that rarely fires. These are finite-horizon synthetic experiments with known initial reporting probabilities, a single slowdown mechanism, no group stratification, and no retraining action. They establish neither fairness nor production readiness. Next: compare matured-cohort and jointly estimated reporting/performance baselines on fresh seeds, then test minority groups and unseen reporting regimes.
