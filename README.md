@@ -121,3 +121,37 @@ The arrived-label baseline's threshold is unchanged by broader calibration. It d
 This is a negative result: broader null calibration reduces reporting-shift false alarms but nearly eliminates censored-detector power for harm-only drift. A high score can reflect misspecified reporting probabilities rather than increased model error. The observed reporting-only false-alarm rate remains 6%, not a demonstrated 5% guarantee for this fitted threshold. No parameter was retuned after seeing these evaluation results.
 
 Evaluation excludes pre-change-alarmed runs from harmful-drift detection denominators and reports those exclusions. Conditional mean delay includes detections only. Mean capped delay assigns the 40-day remaining monitoring horizon to every eligible miss, making failures visible rather than rewarding a detector that rarely fires. These are finite-horizon synthetic experiments with known initial reporting probabilities, a single slowdown mechanism, no group stratification, and no retraining action. They establish neither fairness nor production readiness. Next: compare matured-cohort and jointly estimated reporting/performance baselines on fresh seeds, then test minority groups and unseen reporting regimes.
+
+## Working delivery application
+
+The operational application is now separate from the illustrative stream and the original generic monitor. It supports actual model inference, durable saved orders, immutable delivery outcomes, state-level descriptive accuracy, pending-outcome bounds, and JSON export of the latest 200 records. Metrics include all records. No artificial stream is injected into the operational database.
+
+```sh
+python -m pip install -r requirements.txt
+python -m uvicorn serving:app --host 127.0.0.1 --port 8000
+```
+
+Open http://127.0.0.1:8000 on the computer running Python. The SQLite file defaults to `delivery.sqlite`; set `DELIVERY_DB` to change it. This local API has no authentication and is intended for trusted local use. Hosted access remains owner-private and uses a separate persistent D1 database.
+
+1. Enter a non-identifying order ID, Brazilian state, purchase time, and exclusive delivery deadline.
+2. The server constructs features and applies the saved logistic regression. A score at or above 6% is classified as late risk. It stores the inputs, prediction, model version, and creation time.
+3. Record the delivery timestamp. Late means delivery at or after the deadline; reporting time is recorded separately by the server. The outcome cannot silently replace an existing different result.
+4. The queue and per-state metrics update. Missing outcomes produce bounds `[correct/total, (correct+pending)/total]`; these are not confidence intervals.
+
+All entered times are UTC. The original historical training data used its recorded naive calendar values; this demo's UTC convention should be adapted and evaluated for an operational source. No courier integration or automatic label collection is configured: the operator supplies actual order/outcome data. No automatic drift-triggered retraining is enabled because the research detector has not passed validation.
+
+### Model and deployment parity
+
+`train_serving.py` trains the portable logistic baseline on the same chronological split as the historical study. With the Olist ZIP available, run `python train_serving.py /path/to/orders.zip` after installing `requirements-research.txt`. Train: 41,197 orders. Held-out test: 32,150 orders. Logistic average precision 0.102634 and Brier score 0.041126. The previous historical study reports the separate gradient-boosting model, so its numbers are not the serving-model metrics. The logistic decision threshold is selected on calibration data, never the test set. The script checks exported predictions against scikit-learn on every held-out order; 30 fixtures are retained for cross-runtime checks.
+
+Python serves `serving-model.json` through FastAPI. Sites hosts a JavaScript Worker that uses the identical coefficients, feature order, intercept and threshold; Python does not execute inside Sites. Build the Worker with `python build_hosted.py /path/to/site/dist/server`. The source manifest uses `d1: "DB"`, and `hosted/drizzle` contains the schema-only hosted migration. Apply this migration only once through Sites' migration workflow, not on requests. `hosted/dev.mjs` is a local preview adapter, not production storage.
+
+Verification:
+
+```sh
+python -m pip install httpx
+python -m unittest test_serving test_robust_detection -v
+node hosted/test-worker.mjs
+```
+
+Node 24 supplies the SQLite adapter used by Worker tests. Both runtimes agree with the scikit-learn fixtures within 1e-12. Tests cover input rejection, duplicate retries, conflicting inputs and outcomes, timestamp ordering, saved state across clients, and pending-to-resolved metric bounds. Browser QA exercised prediction and outcome submission on the local Worker preview. Research and product claims remain limited to a working research MVP, not a validated production drift or fairness system.

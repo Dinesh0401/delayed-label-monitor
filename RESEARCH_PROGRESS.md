@@ -13,6 +13,6 @@ Next research milestone: explicitly separate reporting changes from error change
 
 Publication blockers: no validated general drift detector, no group-protection evidence for this ablation, no demonstrated retraining benefit, and no consented production-user study. Hosted animations are separate from offline research. No live site update was part of this milestone.
 
-Existing uncommitted train_serving.py, serving-model.json, and inference-fixtures.json belong to the interrupted model-serving task. They were left untouched, are not validated by this milestone, and are not part of its commit. Complete their integration separately.
+Later on 2026-11-18: completed the serving MVP integration. serving.py provides Python/FastAPI inference and SQLite records; web/index.html is the operational UI; hosted/worker.mjs uses the same learned parameters with D1 persistence. Model parity, API workflow, and browser prediction/outcome checks passed. The previously uncommitted training script, model and fixtures are now included. See README for reproduction and hosting architecture. The live product still requires operator-supplied outcomes; no courier integration, automated retraining, or validated fairness claim is present.
 
 GitHub commits were previously recreated through the connector, so local and GitHub commit IDs differ despite matching source trees. Use GitHub main as the remote authority; do not force-push local history. This milestone updates main using the previous remote head as parent.

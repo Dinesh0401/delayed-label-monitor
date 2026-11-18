@@ -1,0 +1,23 @@
+import assert from 'node:assert/strict';
+import {DatabaseSync} from 'node:sqlite';
+import {readFileSync} from 'node:fs';
+import {adapter} from './db-adapter.mjs';
+import {createHandler,probability} from './worker.mjs';
+const model=JSON.parse(readFileSync('serving-model.json'));
+for(const f of JSON.parse(readFileSync('inference-fixtures.json')))assert.ok(Math.abs(probability(f.features,model)-f.expected)<1e-12);
+const db=new DatabaseSync(':memory:');db.exec(readFileSync('hosted/drizzle/0000_delivery_orders.sql','utf8'));
+const app=createHandler(model,'html','study',{}),env={DB:adapter(db)};
+async function req(path,body){const r=await app.fetch(new Request('https://example.test/api/'+path,body?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}:{}),env);return {status:r.status,data:await r.json()}}
+const order={id:'TEST',state:'SP',purchased:'2026-01-01T10:00:00Z',due:'2026-01-10T00:00:00Z'};
+const first=await req('orders',order);assert.equal(first.status,200);assert.deepEqual((await req('orders',order)).data,first.data);
+assert.equal((await req('orders',{...order,state:'AM'})).status,409);
+assert.equal((await req('orders',{...order,id:'OTHER',due:order.purchased})).status,422);
+assert.equal((await req('metrics')).data[0].pending,1);
+assert.equal((await req('outcomes',{id:'TEST',delivered:'2025-01-01T00:00:00Z'})).status,422);
+const outcome={id:'TEST',delivered:'2026-01-09T00:00:00Z'};
+const saved=await req('outcomes',outcome);assert.equal(saved.status,200);assert.deepEqual((await req('outcomes',outcome)).data,saved.data);
+assert.equal((await req('outcomes',{...outcome,delivered:'2026-01-11T00:00:00Z'})).status,409);
+const m=(await req('metrics')).data[0];assert.equal(m.pending,0);assert.equal(m.lower,m.upper);
+assert.equal((await req('orders')).data.length,1);
+console.log('Worker: model parity, SQLite-backed workflow, retries, invalid dates, conflicts and bounds passed.');
+db.close();
