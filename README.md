@@ -155,3 +155,31 @@ node hosted/test-worker.mjs
 ```
 
 Node 24 supplies the SQLite adapter used by Worker tests. Both runtimes agree with the scikit-learn fixtures within 1e-12. Tests cover input rejection, duplicate retries, conflicting inputs and outcomes, timestamp ordering, saved state across clients, and pending-to-resolved metric bounds. Browser QA exercised prediction and outcome submission on the local Worker preview. Research and product claims remain limited to a working research MVP, not a validated production drift or fairness system.
+
+## Fixed-cohort monitoring and prospective retraining (2026-11-19)
+
+The new research milestone implements missing-label error bounds, subgroup monitoring, and a prospective shadow candidate gate. See `research/METHOD.md` for equations, assumptions and related research; `research/PROTOCOL.md` records the initial method and the fresh-seed follow-up after its failure.
+
+```sh
+python research_suite.py --phase initial
+python research_suite.py --phase shadow
+python research_report.py
+python -m unittest discover -v
+node hosted/test-worker.mjs
+```
+
+Both complete experiment phases were rerun and matched all four saved CSV/JSON outputs byte for byte. Per-run CSVs are committed as deterministic gzip files; the script produces both raw and compressed files. Uncompressed checksums are in `research/results/reproduction-sha256.json`. NumPy is pinned in `requirements-research.txt`. The suite covers 9 scenarios, 3 group sizes and 100 seeds per phase: 16,200 initial policy runs and 18,900 follow-up policy runs, with shared random streams for paired comparisons. These are not 35,100 independent experiments.
+
+In the follow-up, with 8 minority predictions/day under severe drift and reporting slowdown, prospective shadow adaptation reduced minority error from 62.6% to 40.1%, with one refit per run. The paired 95% bootstrap interval for the gain is approximately 22.2–22.7 percentage points. It observed zero false alarms/refits in stable and reporting-only settings. Scheduled periodic refits achieved lower severe-drift error (~37%) at higher training cost (4 attempts). The prospective method is not uniformly best. At 2/day only 38/100 severe-drift runs promoted a candidate. At 8/day under 30-day delays it detected 0/100 harmful streams. Full results and the failed original gate are retained.
+
+The operational API `/api/diagnostics` evaluates a fixed model per state once per UTC-day snapshot. It starts after 67 days of prediction-creation history; new or sparse data is explicitly inconclusive. A fixed 30-day reference is compared with a later 28-day cohort, buffered by 9 days. Missing labels retain their place in the denominator. The family budget covers 27 states and at most 120 daily looks per model version. It is not a perpetual guarantee, does not restart automatically and must not be interpreted as proof of safety. The live serving model is never replaced by this endpoint.
+
+`candidate_retrain.py` trains a real scikit-learn logistic shadow candidate from an exported order JSON, evaluates a later fixed cohort, writes a candidate artifact and a per-state promotion report, and leaves the deployed model untouched. Example:
+
+```sh
+python candidate_retrain.py export.json --as-of 2026-11-19T00:00:00Z --train-before 2026-10-01T00:00:00Z --out candidate-run
+```
+
+This requires at least 30 labeled training orders, both classes, and later validation records; a small sample should normally fail the evidence gate. Pending labels count against approval. It certifies neither absent states nor repeated tuning on the same holdout. The browser export contains only the latest 200 orders, so it may be inadequate for training. No live courier credentials, automatic ingestion, or production retraining rollout is configured.
+
+The research report is generated at `research/report.html` and served at `/research-study.html`. `research/USER_STUDY.md` provides a consented usability-study protocol only: no participants or feedback have been fabricated. Remaining publication blockers include strong external baselines, real-stream adaptation replication, temporal-dependence validation, independent novelty review and actual consented users.

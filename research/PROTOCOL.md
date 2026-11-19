@@ -1,0 +1,21 @@
+# Registered implementation protocol — 2026-11-19
+
+Question: can a conservative fixed-cohort monitor avoid reporting-only false alarms while detecting subgroup harm, and can a separate held-out gate prevent unnecessary model changes?
+
+Frozen choices before this run: seeds 5000–5099, 120 monitoring days, 30 reference days, drift at day 40, majority 80/day, minority 2/8/24 per day. Stable error .12; severe minority drift .88; mild drift .35; gradual drift ramps .12 to .88 over 20 days. Normal delays 1 or 9 days, outcome-dependent early probability .3 for errors and .8 for correct predictions. Reporting shifts slow to .08/.45; speed-up shifts to .9/.3 without changing true error. Long-tail stress uses 30-day late labels; missing stress never reports 20% of labels. Scenarios: stable, reporting_slow, reporting_fast, harm, both, mild, gradual, long_tail, missing.
+
+All policies use the same events per seed/scenario/size. No parameters will be tuned on these seeds. Comparisons: no change, periodic refit, arrived-only group alarm, fixed-cohort pooled alarm, fixed-cohort group alarm, group alarm without promotion gate. Candidate model class is explicitly restricted to identity/inversion by group; this is a controlled adaptation experiment, not the Olist serving model.
+
+Monitoring uses a 28-day cohort ending 9 days before the current decision. Cohort membership never depends on whether its label arrived. Missing labels remain in the denominator. For each group/time, a lower error bound is observed errors / all cohort predictions minus a Hoeffding radius; the reference upper bound treats its pending labels as errors. Alarm when lower current error exceeds upper reference error by .05. Family alpha .05 is Bonferroni allocated over 2 groups, 120 decision times, and two sides. Reporting completeness is a separate descriptive diagnostic, never sufficient for retraining.
+
+On an alarm, fit identity/inversion on an older 14-day cohort and validate on the following disjoint 14-day cohort (both ending at least 9 days before the decision). Training requires every label in its fixed cohort to have arrived. Validation includes pending labels with worst-case paired improvement -1. Require a lower paired improvement bound > .02, allocating alpha over all group/time/candidate comparisons. At most two training attempts per group; one successful change per group. Other groups' prediction rules remain exactly unchanged.
+
+Report per-run and aggregate: null any-group alarm rate, pre-change alarms, minority detections and misses among pre-alarm-free runs, capped delay with misses assigned 80 days, majority/minority prequential loss, training attempts, promotions and unchanged refits. Report paired bootstrap intervals across seeds (fixed bootstrap seed 71), not across individual events. This cannot establish population fairness, novelty, production utility or effectiveness on untested data.
+
+## Prospective shadow follow-up, fixed before seeds 6000–6099
+
+The initial run detected severe subgroup drift but exhausted attempts while the older training window still represented the old concept. Keep `initial-summary.json` and `initial-runs.csv` unchanged. Add `shadow_group` as a separate follow-up, evaluating ALL policies on fresh seeds 6000–6099; no claim that these are the original registered seeds.
+
+On an alarm, train on the most recent fully observed 14-day cohort ending 9 days before the alarm. Freeze that candidate. Evaluate on the NEXT 14 prediction days beginning at the alarm, then wait 9 additional days. Pending validation labels still receive worst-case paired gain -1. Promote only if the same .02 lower-bound gate passes. After failure or an unchanged candidate, wait at least 28 days between training attempts. Maximum two attempts per group and one promotion per group remain fixed. The prospective holdout avoids training on the validation cohort and delays promotion deliberately. Small groups can still fail to supply enough evidence. This is a changed method evaluated on new data, not a retuning of the reported initial result.
+
+Periodic schedules are scheduled actions, not drift detections: their false-alarm and detection summaries are not meaningful detector measures. Use their loss, training attempts, and unchanged-refit statistics for comparison; reporting tables label this distinction.

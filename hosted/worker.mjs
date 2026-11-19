@@ -14,13 +14,14 @@ export function normalizeOrder(b,model){
   const p=probability(model.features.map(f=>values[f]||0),model);
   return {id:b.id,state:b.state,purchased,due,probability:p,predicted:Number(p>=model.threshold),model_version:model.version,created:new Date().toISOString()};
 }
-export function createHandler(model,html,study,research){
+export function createHandler(model,html,study,research,study2='Research report unavailable'){
  const json=(data,status=200)=>new Response(JSON.stringify(data),{status,headers:{'Content-Type':'application/json','Cache-Control':'no-store'}});
  return {async fetch(request,env){
   const url=new URL(request.url),path=url.pathname;
   try {
    if(request.method==='GET'&&path==='/')return new Response(html,{headers:{'Content-Type':'text/html;charset=utf-8'}});
    if(request.method==='GET'&&(path==='/delivery-study.html'||path==='/delivery-study'))return new Response(study,{headers:{'Content-Type':'text/html;charset=utf-8'}});
+   if(request.method==='GET'&&path==='/research-study.html')return new Response(study2,{headers:{'Content-Type':'text/html;charset=utf-8'}});
    if(request.method==='GET'&&path==='/research.json')return json(research);
    if(request.method==='GET'&&path==='/api/model'){const {coefficients,intercept,features,...card}=model;return json(card)}
    if(!path.startsWith('/api/'))return json({detail:'Not found'},404);
@@ -47,6 +48,7 @@ export function createHandler(model,html,study,research){
      if(saved.delivered!==delivered)fail(409,'This order already has a different outcome');return json(saved);
     }
    }
+   if(request.method==='GET'&&path==='/api/diagnostics')return json(diagnose((await env.DB.prepare('SELECT * FROM orders').all()).results));
    if(request.method==='GET'&&path==='/api/orders')return json((await env.DB.prepare('SELECT * FROM orders ORDER BY created DESC,id LIMIT 200').all()).results);
    if(request.method==='GET'&&path==='/api/metrics'){
     const {results}=await env.DB.prepare('SELECT state,COUNT(*) n,COUNT(delivered) resolved,SUM(CASE WHEN delivered IS NOT NULL AND predicted=(delivered>=due) THEN 1 ELSE 0 END) correct FROM orders GROUP BY state ORDER BY state').all();
@@ -55,4 +57,22 @@ export function createHandler(model,html,study,research){
    return json({detail:'Not found'},404);
   }catch(e){return json({detail:e.detail||'Server error; please retry'},e.code||500)}
  }};
+}
+
+export function diagnose(rows,now=new Date()){
+ const DAY=86400000,cutoff=Math.floor(now.getTime()/DAY)*DAY,groups=new Map(),output=[];
+ for(const r of rows){if(Date.parse(r.created)>=cutoff)continue;const key=r.state+'|'+r.model_version;if(!groups.has(key))groups.set(key,[]);groups.get(key).push(r)}
+ for(const [key,events] of [...groups.entries()].sort()){
+  const first=Math.floor(events.reduce((minimum,r)=>Math.min(minimum,Date.parse(r.created)),Infinity)/DAY)*DAY,day=Math.floor((cutoff-first)/DAY);
+  const base={state:events[0].state,model_version:events[0].model_version,day,as_of:new Date(cutoff).toISOString()};
+  if(day<67){output.push({...base,status:'collecting_reference',days_until_first_look:67-day});continue}
+  if(day>=150){output.push({...base,status:'horizon_complete'});continue}
+  function cohort(lo,hi){const chosen=events.filter(r=>Date.parse(r.created)>=first+lo*DAY&&Date.parse(r.created)<first+hi*DAY),known=chosen.filter(r=>r.reported&&Date.parse(r.reported)<=cutoff);return [known.filter(r=>Boolean(r.predicted)!==(Date.parse(r.delivered)>=Date.parse(r.due))).length,chosen.length-known.length,chosen.length]}
+  const ref=cohort(0,30),cur=cohort(day-37,day-9);
+  if(!ref[2]||!cur[2]){output.push({...base,status:'insufficient_data'});continue}
+  const tail=.05/(2*27*120),radius=n=>Math.sqrt(Math.log(1/tail)/(2*n));
+  const upper=Math.min(1,(ref[0]+ref[1])/ref[2]+radius(ref[2])),lower=Math.max(0,cur[0]/cur[2]-radius(cur[2])),alarm=lower>upper+.05;
+  output.push({...base,status:alarm?'harm_evidence':'no_confirmed_harm',alarm,reference_upper:upper,current_lower:lower,current_upper:Math.min(1,(cur[0]+cur[1])/cur[2]+radius(cur[2])),margin:.05,reference_n:ref[2],current_n:cur[2],pending:cur[1]});
+ }
+ return {as_of:new Date(cutoff).toISOString(),groups:output,policy:'Daily fixed cohorts, 5 percentage-point harm margin; no automatic promotion',assumptions:'Independent bounded losses, fixed model, fixed 27 states; one 120-look budget per model version. Reusing versions or repeated restarts invalidates the budget.'};
 }

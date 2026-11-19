@@ -114,3 +114,14 @@ def study(): return FileResponse(ROOT/'delivery-results/report.html')
 
 @app.get('/research.json')
 def research(): return FileResponse(ROOT/'robust-detection-results.json')
+
+
+@app.get('/api/diagnostics')
+def diagnostics():
+    from operational_diagnostics import diagnose
+    with database() as db:
+        return diagnose([dict(r) for r in db.execute('SELECT * FROM orders')])
+
+
+@app.get('/research-study.html')
+def research_study(): return FileResponse(ROOT/'research/report.html')

@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {DatabaseSync} from 'node:sqlite';
 import {readFileSync} from 'node:fs';
 import {adapter} from './db-adapter.mjs';
-import {createHandler,probability} from './worker.mjs';
+import {createHandler,probability,diagnose} from './worker.mjs';
 const model=JSON.parse(readFileSync('serving-model.json'));
 for(const f of JSON.parse(readFileSync('inference-fixtures.json')))assert.ok(Math.abs(probability(f.features,model)-f.expected)<1e-12);
 const db=new DatabaseSync(':memory:');db.exec(readFileSync('hosted/drizzle/0000_delivery_orders.sql','utf8'));
@@ -20,4 +20,9 @@ assert.equal((await req('outcomes',{...outcome,delivered:'2026-01-11T00:00:00Z'}
 const m=(await req('metrics')).data[0];assert.equal(m.pending,0);assert.equal(m.lower,m.upper);
 assert.equal((await req('orders')).data.length,1);
 console.log('Worker: model parity, SQLite-backed workflow, retries, invalid dates, conflicts and bounds passed.');
-db.close();
+const diagnosis=await req('diagnostics');assert.equal(diagnosis.status,200);assert.ok(Array.isArray(diagnosis.data.groups));
+const collected=diagnose([{state:'SP',model_version:'v1',created:'2026-01-01T10:00:00Z',reported:null}],new Date('2026-01-02T00:00:00Z'));
+assert.equal(collected.groups[0].status,'collecting_reference');assert.equal(collected.groups[0].days_until_first_look,66);
+const mature=[];for(let day=0;day<100;day++){for(let i=0;i<100;i++){const created=new Date(Date.UTC(2026,0,1+day,1)).toISOString();mature.push({state:'SP',model_version:'v1',created,reported:created,delivered:created,due:new Date(Date.UTC(2026,0,1+day+(day<40?1:-1),1)).toISOString(),predicted:0})}}
+assert.equal(diagnose(mature,new Date('2026-04-11T00:00:00Z')).groups[0].status,'harm_evidence');
+console.log('Daily diagnostic warmup and strong-harm fixtures passed.');db.close();

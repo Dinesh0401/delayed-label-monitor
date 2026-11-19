@@ -1,0 +1,3789 @@
+{
+  "protocol": "research/PROTOCOL.md",
+  "seeds": [
+    6000,
+    6099
+  ],
+  "rows": [
+    {
+      "minority_per_day": 2,
+      "scenario": "stable",
+      "policy": "frozen",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11725,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "stable",
+      "policy": "periodic",
+      "runs": 100,
+      "false_alarms": 100,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11725,
+      "refits": 4.0,
+      "promotions": 0.0,
+      "unchanged_refits": 4.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "stable",
+      "policy": "arrived_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11725,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "stable",
+      "policy": "cohort_pooled",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11725,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "stable",
+      "policy": "cohort_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11725,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "stable",
+      "policy": "ungated_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11725,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "stable",
+      "policy": "shadow_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11725,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "reporting_slow",
+      "policy": "frozen",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11725,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "reporting_slow",
+      "policy": "periodic",
+      "runs": 100,
+      "false_alarms": 100,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11725,
+      "refits": 4.0,
+      "promotions": 0.0,
+      "unchanged_refits": 4.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "reporting_slow",
+      "policy": "arrived_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11725,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "reporting_slow",
+      "policy": "cohort_pooled",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11725,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "reporting_slow",
+      "policy": "cohort_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11725,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "reporting_slow",
+      "policy": "ungated_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11725,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "reporting_slow",
+      "policy": "shadow_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11725,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "reporting_fast",
+      "policy": "frozen",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11725,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "reporting_fast",
+      "policy": "periodic",
+      "runs": 100,
+      "false_alarms": 100,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11725,
+      "refits": 4.0,
+      "promotions": 0.0,
+      "unchanged_refits": 4.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "reporting_fast",
+      "policy": "arrived_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11725,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "reporting_fast",
+      "policy": "cohort_pooled",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11725,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "reporting_fast",
+      "policy": "cohort_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11725,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "reporting_fast",
+      "policy": "ungated_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11725,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "reporting_fast",
+      "policy": "shadow_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11725,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "harm",
+      "policy": "frozen",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6257500000000001,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "harm",
+      "policy": "periodic",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 0.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.3716666666666668,
+      "refits": 4.0,
+      "promotions": 1.0,
+      "unchanged_refits": 3.0,
+      "minority_gain_vs_frozen": 0.2540833333333333,
+      "paired_gain_bootstrap_95": [
+        0.2491645833333333,
+        0.25849999999999995
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "harm",
+      "policy": "arrived_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 31.93,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.5409166666666667,
+      "refits": 1.79,
+      "promotions": 0.28,
+      "unchanged_refits": 0.23,
+      "minority_gain_vs_frozen": 0.08483333333333334,
+      "paired_gain_bootstrap_95": [
+        0.059997916666666665,
+        0.11199999999999999
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "harm",
+      "policy": "cohort_pooled",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6257500000000001,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "harm",
+      "policy": "cohort_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 31.93,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.5409166666666667,
+      "refits": 1.79,
+      "promotions": 0.28,
+      "unchanged_refits": 0.23,
+      "minority_gain_vs_frozen": 0.08483333333333334,
+      "paired_gain_bootstrap_95": [
+        0.059997916666666665,
+        0.11199999999999999
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "harm",
+      "policy": "ungated_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 31.93,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.33699999999999997,
+      "refits": 1.18,
+      "promotions": 0.95,
+      "unchanged_refits": 0.23,
+      "minority_gain_vs_frozen": 0.28875,
+      "paired_gain_bootstrap_95": [
+        0.27407499999999996,
+        0.3015020833333333
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "harm",
+      "policy": "shadow_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 31.93,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.5648333333333334,
+      "refits": 1.62,
+      "promotions": 0.38,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.06091666666666666,
+      "paired_gain_bootstrap_95": [
+        0.04516666666666667,
+        0.07641666666666666
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "both",
+      "policy": "frozen",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6257500000000001,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "both",
+      "policy": "periodic",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 0.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.3716666666666668,
+      "refits": 4.0,
+      "promotions": 1.0,
+      "unchanged_refits": 3.0,
+      "minority_gain_vs_frozen": 0.2540833333333333,
+      "paired_gain_bootstrap_95": [
+        0.2491645833333333,
+        0.25849999999999995
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "both",
+      "policy": "arrived_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 31.93,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.5409166666666667,
+      "refits": 1.79,
+      "promotions": 0.28,
+      "unchanged_refits": 0.23,
+      "minority_gain_vs_frozen": 0.08483333333333334,
+      "paired_gain_bootstrap_95": [
+        0.059997916666666665,
+        0.11199999999999999
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "both",
+      "policy": "cohort_pooled",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6257500000000001,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "both",
+      "policy": "cohort_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 31.93,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.5409166666666667,
+      "refits": 1.79,
+      "promotions": 0.28,
+      "unchanged_refits": 0.23,
+      "minority_gain_vs_frozen": 0.08483333333333334,
+      "paired_gain_bootstrap_95": [
+        0.059997916666666665,
+        0.11199999999999999
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "both",
+      "policy": "ungated_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 31.93,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.33699999999999997,
+      "refits": 1.18,
+      "promotions": 0.95,
+      "unchanged_refits": 0.23,
+      "minority_gain_vs_frozen": 0.28875,
+      "paired_gain_bootstrap_95": [
+        0.27407499999999996,
+        0.3015020833333333
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "both",
+      "policy": "shadow_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 31.93,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.5648333333333334,
+      "refits": 1.62,
+      "promotions": 0.38,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.06091666666666666,
+      "paired_gain_bootstrap_95": [
+        0.04516666666666667,
+        0.07641666666666666
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "mild",
+      "policy": "frozen",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.26958333333333334,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "mild",
+      "policy": "periodic",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 0.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.26958333333333334,
+      "refits": 4.0,
+      "promotions": 0.0,
+      "unchanged_refits": 4.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "mild",
+      "policy": "arrived_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.26958333333333334,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "mild",
+      "policy": "cohort_pooled",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.26958333333333334,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "mild",
+      "policy": "cohort_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.26958333333333334,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "mild",
+      "policy": "ungated_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.26958333333333334,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "mild",
+      "policy": "shadow_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.26958333333333334,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "gradual",
+      "policy": "frozen",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.55925,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "gradual",
+      "policy": "periodic",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 0.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.47666666666666657,
+      "refits": 4.0,
+      "promotions": 0.32,
+      "unchanged_refits": 3.68,
+      "minority_gain_vs_frozen": 0.08258333333333333,
+      "paired_gain_bootstrap_95": [
+        0.05891458333333333,
+        0.10567291666666663
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "gradual",
+      "policy": "arrived_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 43.04,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.4870833333333333,
+      "refits": 1.83,
+      "promotions": 0.32,
+      "unchanged_refits": 0.33,
+      "minority_gain_vs_frozen": 0.07216666666666667,
+      "paired_gain_bootstrap_95": [
+        0.051583333333333335,
+        0.09483541666666666
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "gradual",
+      "policy": "cohort_pooled",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.55925,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "gradual",
+      "policy": "cohort_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 43.04,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.4870833333333333,
+      "refits": 1.83,
+      "promotions": 0.32,
+      "unchanged_refits": 0.33,
+      "minority_gain_vs_frozen": 0.07216666666666667,
+      "paired_gain_bootstrap_95": [
+        0.051583333333333335,
+        0.09483541666666666
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "gradual",
+      "policy": "ungated_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 43.04,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.3419166666666667,
+      "refits": 1.26,
+      "promotions": 0.94,
+      "unchanged_refits": 0.32,
+      "minority_gain_vs_frozen": 0.2173333333333333,
+      "paired_gain_bootstrap_95": [
+        0.20475000000000002,
+        0.22850208333333336
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "gradual",
+      "policy": "shadow_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 43.04,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.5275,
+      "refits": 1.64,
+      "promotions": 0.35,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.03175,
+      "paired_gain_bootstrap_95": [
+        0.0235,
+        0.04066874999999998
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "long_tail",
+      "policy": "frozen",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6257500000000001,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "long_tail",
+      "policy": "periodic",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 0.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6257500000000001,
+      "refits": 0.02,
+      "promotions": 0.0,
+      "unchanged_refits": 0.02,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "long_tail",
+      "policy": "arrived_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 59,
+      "mean_capped_delay": 61.64,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6257500000000001,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "long_tail",
+      "policy": "cohort_pooled",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6257500000000001,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "long_tail",
+      "policy": "cohort_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6257500000000001,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "long_tail",
+      "policy": "ungated_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6257500000000001,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "long_tail",
+      "policy": "shadow_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6257500000000001,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "missing",
+      "policy": "frozen",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6257500000000001,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "missing",
+      "policy": "periodic",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 0.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6257500000000001,
+      "refits": 2.0,
+      "promotions": 0.0,
+      "unchanged_refits": 2.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "missing",
+      "policy": "arrived_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 33.88,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6245,
+      "refits": 0.08,
+      "promotions": 0.01,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.00125,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.00375
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "missing",
+      "policy": "cohort_pooled",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6257500000000001,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "missing",
+      "policy": "cohort_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 80,
+      "mean_capped_delay": 51.79,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6245,
+      "refits": 0.04,
+      "promotions": 0.01,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.00125,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.00375
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "missing",
+      "policy": "ungated_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 80,
+      "mean_capped_delay": 51.79,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6234166666666667,
+      "refits": 0.03,
+      "promotions": 0.03,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0023333333333333327,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.005587499999999977
+      ]
+    },
+    {
+      "minority_per_day": 2,
+      "scenario": "missing",
+      "policy": "shadow_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 80,
+      "mean_capped_delay": 51.79,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6257500000000001,
+      "refits": 0.06,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "stable",
+      "policy": "frozen",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.12045833333333336,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "stable",
+      "policy": "periodic",
+      "runs": 100,
+      "false_alarms": 100,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.12045833333333336,
+      "refits": 4.0,
+      "promotions": 0.0,
+      "unchanged_refits": 4.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "stable",
+      "policy": "arrived_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.12045833333333336,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "stable",
+      "policy": "cohort_pooled",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.12045833333333336,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "stable",
+      "policy": "cohort_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.12045833333333336,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "stable",
+      "policy": "ungated_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.12045833333333336,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "stable",
+      "policy": "shadow_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.12045833333333336,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "reporting_slow",
+      "policy": "frozen",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.12045833333333336,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "reporting_slow",
+      "policy": "periodic",
+      "runs": 100,
+      "false_alarms": 100,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.12045833333333336,
+      "refits": 4.0,
+      "promotions": 0.0,
+      "unchanged_refits": 4.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "reporting_slow",
+      "policy": "arrived_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.12045833333333336,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "reporting_slow",
+      "policy": "cohort_pooled",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.12045833333333336,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "reporting_slow",
+      "policy": "cohort_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.12045833333333336,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "reporting_slow",
+      "policy": "ungated_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.12045833333333336,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "reporting_slow",
+      "policy": "shadow_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.12045833333333336,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "reporting_fast",
+      "policy": "frozen",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.12045833333333336,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "reporting_fast",
+      "policy": "periodic",
+      "runs": 100,
+      "false_alarms": 100,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.12045833333333336,
+      "refits": 4.0,
+      "promotions": 0.0,
+      "unchanged_refits": 4.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "reporting_fast",
+      "policy": "arrived_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.12045833333333336,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "reporting_fast",
+      "policy": "cohort_pooled",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.12045833333333336,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "reporting_fast",
+      "policy": "cohort_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.12045833333333336,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "reporting_fast",
+      "policy": "ungated_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.12045833333333336,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "reporting_fast",
+      "policy": "shadow_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.12045833333333336,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "harm",
+      "policy": "frozen",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6258541666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "harm",
+      "policy": "periodic",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 0.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.3724791666666667,
+      "refits": 4.0,
+      "promotions": 1.0,
+      "unchanged_refits": 3.0,
+      "minority_gain_vs_frozen": 0.253375,
+      "paired_gain_bootstrap_95": [
+        0.25102083333333336,
+        0.25568749999999996
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "harm",
+      "policy": "arrived_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 21.63,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6258541666666667,
+      "refits": 2.0,
+      "promotions": 0.0,
+      "unchanged_refits": 2.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "harm",
+      "policy": "cohort_pooled",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6258541666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "harm",
+      "policy": "cohort_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 21.63,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6258541666666667,
+      "refits": 2.0,
+      "promotions": 0.0,
+      "unchanged_refits": 2.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "harm",
+      "policy": "ungated_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 21.63,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6258541666666667,
+      "refits": 2.0,
+      "promotions": 0.0,
+      "unchanged_refits": 2.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "harm",
+      "policy": "shadow_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 21.63,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.40114583333333337,
+      "refits": 1.0,
+      "promotions": 1.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.2247083333333334,
+      "paired_gain_bootstrap_95": [
+        0.22206145833333332,
+        0.22714583333333332
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "both",
+      "policy": "frozen",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6258541666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "both",
+      "policy": "periodic",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 0.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.3724791666666667,
+      "refits": 4.0,
+      "promotions": 1.0,
+      "unchanged_refits": 3.0,
+      "minority_gain_vs_frozen": 0.253375,
+      "paired_gain_bootstrap_95": [
+        0.25102083333333336,
+        0.25568749999999996
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "both",
+      "policy": "arrived_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 21.63,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6258541666666667,
+      "refits": 2.0,
+      "promotions": 0.0,
+      "unchanged_refits": 2.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "both",
+      "policy": "cohort_pooled",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6258541666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "both",
+      "policy": "cohort_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 21.63,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6258541666666667,
+      "refits": 2.0,
+      "promotions": 0.0,
+      "unchanged_refits": 2.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "both",
+      "policy": "ungated_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 21.63,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6258541666666667,
+      "refits": 2.0,
+      "promotions": 0.0,
+      "unchanged_refits": 2.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "both",
+      "policy": "shadow_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 21.63,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.40114583333333337,
+      "refits": 1.0,
+      "promotions": 1.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.2247083333333334,
+      "paired_gain_bootstrap_95": [
+        0.22206145833333332,
+        0.22714583333333332
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "mild",
+      "policy": "frozen",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.2739479166666666,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "mild",
+      "policy": "periodic",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 0.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.2739479166666666,
+      "refits": 4.0,
+      "promotions": 0.0,
+      "unchanged_refits": 4.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "mild",
+      "policy": "arrived_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 8,
+      "mean_capped_delay": 77.74,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.2739479166666666,
+      "refits": 0.15,
+      "promotions": 0.0,
+      "unchanged_refits": 0.15,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "mild",
+      "policy": "cohort_pooled",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.2739479166666666,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "mild",
+      "policy": "cohort_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 8,
+      "mean_capped_delay": 77.74,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.2739479166666666,
+      "refits": 0.15,
+      "promotions": 0.0,
+      "unchanged_refits": 0.15,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "mild",
+      "policy": "ungated_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 8,
+      "mean_capped_delay": 77.74,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.2739479166666666,
+      "refits": 0.15,
+      "promotions": 0.0,
+      "unchanged_refits": 0.15,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "mild",
+      "policy": "shadow_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 8,
+      "mean_capped_delay": 77.74,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.2739479166666666,
+      "refits": 0.08,
+      "promotions": 0.0,
+      "unchanged_refits": 0.08,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "gradual",
+      "policy": "frozen",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.5590729166666665,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "gradual",
+      "policy": "periodic",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 0.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.4864270833333333,
+      "refits": 4.0,
+      "promotions": 0.29,
+      "unchanged_refits": 3.71,
+      "minority_gain_vs_frozen": 0.07264583333333334,
+      "paired_gain_bootstrap_95": [
+        0.05089270833333333,
+        0.09566874999999998
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "gradual",
+      "policy": "arrived_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 32.13,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.5590729166666665,
+      "refits": 2.0,
+      "promotions": 0.0,
+      "unchanged_refits": 2.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "gradual",
+      "policy": "cohort_pooled",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.5590729166666665,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "gradual",
+      "policy": "cohort_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 32.13,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.5590729166666665,
+      "refits": 2.0,
+      "promotions": 0.0,
+      "unchanged_refits": 2.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "gradual",
+      "policy": "ungated_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 32.13,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.5590729166666665,
+      "refits": 2.0,
+      "promotions": 0.0,
+      "unchanged_refits": 2.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "gradual",
+      "policy": "shadow_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 32.13,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.40148958333333334,
+      "refits": 1.0,
+      "promotions": 1.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.15758333333333333,
+      "paired_gain_bootstrap_95": [
+        0.15508333333333335,
+        0.16
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "long_tail",
+      "policy": "frozen",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6258541666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "long_tail",
+      "policy": "periodic",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 0.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6258541666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "long_tail",
+      "policy": "arrived_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 33.74,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6258541666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "long_tail",
+      "policy": "cohort_pooled",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6258541666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "long_tail",
+      "policy": "cohort_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6258541666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "long_tail",
+      "policy": "ungated_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6258541666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "long_tail",
+      "policy": "shadow_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6258541666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "missing",
+      "policy": "frozen",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6258541666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "missing",
+      "policy": "periodic",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 0.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6258541666666667,
+      "refits": 2.0,
+      "promotions": 0.0,
+      "unchanged_refits": 2.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "missing",
+      "policy": "arrived_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 23.34,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6258541666666667,
+      "refits": 0.95,
+      "promotions": 0.0,
+      "unchanged_refits": 0.95,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "missing",
+      "policy": "cohort_pooled",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6258541666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "missing",
+      "policy": "cohort_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 25.17,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6258541666666667,
+      "refits": 0.28,
+      "promotions": 0.0,
+      "unchanged_refits": 0.28,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "missing",
+      "policy": "ungated_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 25.17,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6258541666666667,
+      "refits": 0.28,
+      "promotions": 0.0,
+      "unchanged_refits": 0.28,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 8,
+      "scenario": "missing",
+      "policy": "shadow_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 25.17,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6258541666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "stable",
+      "policy": "frozen",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11957291666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "stable",
+      "policy": "periodic",
+      "runs": 100,
+      "false_alarms": 100,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11957291666666667,
+      "refits": 4.0,
+      "promotions": 0.0,
+      "unchanged_refits": 4.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "stable",
+      "policy": "arrived_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11957291666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "stable",
+      "policy": "cohort_pooled",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11957291666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "stable",
+      "policy": "cohort_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11957291666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "stable",
+      "policy": "ungated_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11957291666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "stable",
+      "policy": "shadow_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11957291666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "reporting_slow",
+      "policy": "frozen",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11957291666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "reporting_slow",
+      "policy": "periodic",
+      "runs": 100,
+      "false_alarms": 100,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11957291666666667,
+      "refits": 4.0,
+      "promotions": 0.0,
+      "unchanged_refits": 4.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "reporting_slow",
+      "policy": "arrived_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11957291666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "reporting_slow",
+      "policy": "cohort_pooled",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11957291666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "reporting_slow",
+      "policy": "cohort_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11957291666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "reporting_slow",
+      "policy": "ungated_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11957291666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "reporting_slow",
+      "policy": "shadow_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11957291666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "reporting_fast",
+      "policy": "frozen",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11957291666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "reporting_fast",
+      "policy": "periodic",
+      "runs": 100,
+      "false_alarms": 100,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11957291666666667,
+      "refits": 4.0,
+      "promotions": 0.0,
+      "unchanged_refits": 4.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "reporting_fast",
+      "policy": "arrived_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11957291666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "reporting_fast",
+      "policy": "cohort_pooled",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11957291666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "reporting_fast",
+      "policy": "cohort_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11957291666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "reporting_fast",
+      "policy": "ungated_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11957291666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "reporting_fast",
+      "policy": "shadow_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 0,
+      "detections": 0,
+      "mean_capped_delay": null,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.11957291666666667,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "harm",
+      "policy": "frozen",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6268229166666666,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "harm",
+      "policy": "periodic",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 0.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.3734895833333334,
+      "refits": 4.0,
+      "promotions": 1.0,
+      "unchanged_refits": 3.0,
+      "minority_gain_vs_frozen": 0.25333333333333335,
+      "paired_gain_bootstrap_95": [
+        0.2520137152777778,
+        0.2546597222222222
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "harm",
+      "policy": "arrived_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 17.26,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6268229166666666,
+      "refits": 2.0,
+      "promotions": 0.0,
+      "unchanged_refits": 2.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "harm",
+      "policy": "cohort_pooled",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 29.25,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.48134374999999996,
+      "refits": 3.71,
+      "promotions": 0.47,
+      "unchanged_refits": 3.24,
+      "minority_gain_vs_frozen": 0.14547916666666666,
+      "paired_gain_bootstrap_95": [
+        0.11715902777777777,
+        0.17641458333333332
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "harm",
+      "policy": "cohort_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 17.26,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6268229166666666,
+      "refits": 2.0,
+      "promotions": 0.0,
+      "unchanged_refits": 2.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "harm",
+      "policy": "ungated_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 17.26,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6268229166666666,
+      "refits": 2.0,
+      "promotions": 0.0,
+      "unchanged_refits": 2.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "harm",
+      "policy": "shadow_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 17.26,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.38061458333333337,
+      "refits": 1.03,
+      "promotions": 1.0,
+      "unchanged_refits": 0.03,
+      "minority_gain_vs_frozen": 0.24620833333333336,
+      "paired_gain_bootstrap_95": [
+        0.23956822916666667,
+        0.25145156249999995
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "both",
+      "policy": "frozen",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6268229166666666,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "both",
+      "policy": "periodic",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 0.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.3734895833333334,
+      "refits": 4.0,
+      "promotions": 1.0,
+      "unchanged_refits": 3.0,
+      "minority_gain_vs_frozen": 0.25333333333333335,
+      "paired_gain_bootstrap_95": [
+        0.2520137152777778,
+        0.2546597222222222
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "both",
+      "policy": "arrived_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 17.26,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6268229166666666,
+      "refits": 2.0,
+      "promotions": 0.0,
+      "unchanged_refits": 2.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "both",
+      "policy": "cohort_pooled",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 29.25,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.48134374999999996,
+      "refits": 3.71,
+      "promotions": 0.47,
+      "unchanged_refits": 3.24,
+      "minority_gain_vs_frozen": 0.14547916666666666,
+      "paired_gain_bootstrap_95": [
+        0.11715902777777777,
+        0.17641458333333332
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "both",
+      "policy": "cohort_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 17.26,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6268229166666666,
+      "refits": 2.0,
+      "promotions": 0.0,
+      "unchanged_refits": 2.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "both",
+      "policy": "ungated_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 17.26,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6268229166666666,
+      "refits": 2.0,
+      "promotions": 0.0,
+      "unchanged_refits": 2.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "both",
+      "policy": "shadow_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 17.26,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.38061458333333337,
+      "refits": 1.03,
+      "promotions": 1.0,
+      "unchanged_refits": 0.03,
+      "minority_gain_vs_frozen": 0.24620833333333336,
+      "paired_gain_bootstrap_95": [
+        0.23956822916666667,
+        0.25145156249999995
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "mild",
+      "policy": "frozen",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.27300694444444445,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "mild",
+      "policy": "periodic",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 0.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.27300694444444445,
+      "refits": 4.0,
+      "promotions": 0.0,
+      "unchanged_refits": 4.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "mild",
+      "policy": "arrived_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 36.92,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.27300694444444445,
+      "refits": 2.0,
+      "promotions": 0.0,
+      "unchanged_refits": 2.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "mild",
+      "policy": "cohort_pooled",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.27300694444444445,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "mild",
+      "policy": "cohort_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 36.92,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.27300694444444445,
+      "refits": 2.0,
+      "promotions": 0.0,
+      "unchanged_refits": 2.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "mild",
+      "policy": "ungated_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 36.92,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.27300694444444445,
+      "refits": 2.0,
+      "promotions": 0.0,
+      "unchanged_refits": 2.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "mild",
+      "policy": "shadow_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 36.92,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.27300694444444445,
+      "refits": 1.88,
+      "promotions": 0.0,
+      "unchanged_refits": 1.88,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "gradual",
+      "policy": "frozen",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.5604305555555555,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "gradual",
+      "policy": "periodic",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 0.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.4974722222222222,
+      "refits": 4.0,
+      "promotions": 0.25,
+      "unchanged_refits": 3.75,
+      "minority_gain_vs_frozen": 0.06295833333333334,
+      "paired_gain_bootstrap_95": [
+        0.04252048611111111,
+        0.08389722222222222
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "gradual",
+      "policy": "arrived_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 27.55,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.5604305555555555,
+      "refits": 2.0,
+      "promotions": 0.0,
+      "unchanged_refits": 2.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "gradual",
+      "policy": "cohort_pooled",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 39.91,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.41672916666666665,
+      "refits": 3.69,
+      "promotions": 0.59,
+      "unchanged_refits": 3.1,
+      "minority_gain_vs_frozen": 0.14370138888888884,
+      "paired_gain_bootstrap_95": [
+        0.12069756944444444,
+        0.1676552083333333
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "gradual",
+      "policy": "cohort_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 27.55,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.5604305555555555,
+      "refits": 2.0,
+      "promotions": 0.0,
+      "unchanged_refits": 2.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "gradual",
+      "policy": "ungated_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 27.55,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.5604305555555555,
+      "refits": 2.0,
+      "promotions": 0.0,
+      "unchanged_refits": 2.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "gradual",
+      "policy": "shadow_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 27.55,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.3796597222222223,
+      "refits": 1.03,
+      "promotions": 1.0,
+      "unchanged_refits": 0.03,
+      "minority_gain_vs_frozen": 0.18077083333333335,
+      "paired_gain_bootstrap_95": [
+        0.17406215277777778,
+        0.18563888888888885
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "long_tail",
+      "policy": "frozen",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6268229166666666,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "long_tail",
+      "policy": "periodic",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 0.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6268229166666666,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "long_tail",
+      "policy": "arrived_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 31.71,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6268229166666666,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "long_tail",
+      "policy": "cohort_pooled",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6268229166666666,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "long_tail",
+      "policy": "cohort_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 17,
+      "mean_capped_delay": 75.63,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6268229166666666,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "long_tail",
+      "policy": "ungated_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 17,
+      "mean_capped_delay": 75.63,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6268229166666666,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "long_tail",
+      "policy": "shadow_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 17,
+      "mean_capped_delay": 75.63,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6268229166666666,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "missing",
+      "policy": "frozen",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 0,
+      "mean_capped_delay": 80.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6268229166666666,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "missing",
+      "policy": "periodic",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 0.0,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6268229166666666,
+      "refits": 2.0,
+      "promotions": 0.0,
+      "unchanged_refits": 2.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "missing",
+      "policy": "arrived_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 18.71,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6268229166666666,
+      "refits": 2.0,
+      "promotions": 0.0,
+      "unchanged_refits": 2.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "missing",
+      "policy": "cohort_pooled",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 54,
+      "mean_capped_delay": 62.38,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6268229166666666,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "missing",
+      "policy": "cohort_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 19.6,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6268229166666666,
+      "refits": 2.0,
+      "promotions": 0.0,
+      "unchanged_refits": 2.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "missing",
+      "policy": "ungated_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 19.6,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6268229166666666,
+      "refits": 2.0,
+      "promotions": 0.0,
+      "unchanged_refits": 2.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "minority_per_day": 24,
+      "scenario": "missing",
+      "policy": "shadow_group",
+      "runs": 100,
+      "false_alarms": 0,
+      "eligible": 100,
+      "detections": 100,
+      "mean_capped_delay": 19.6,
+      "majority_error": 0.11954791666666667,
+      "minority_error": 0.6268229166666666,
+      "refits": 0.0,
+      "promotions": 0.0,
+      "unchanged_refits": 0.0,
+      "minority_gain_vs_frozen": 0.0,
+      "paired_gain_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    }
+  ]
+}
