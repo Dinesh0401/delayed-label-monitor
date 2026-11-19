@@ -123,5 +123,90 @@ def diagnostics():
         return diagnose([dict(r) for r in db.execute('SELECT * FROM orders')])
 
 
+@app.get('/api/export')
+def export_orders(state: str = None, limit: int = None):
+    query = 'SELECT * FROM orders'
+    params = []
+    if state:
+        query += ' WHERE state = ?'
+        params.append(state)
+    query += ' ORDER BY created ASC'
+    if limit:
+        query += ' LIMIT ?'
+        params.append(limit)
+    with database() as db:
+        rows = [dict(r) for r in db.execute(query, params).fetchall()]
+    return dict(orders=rows, total=len(rows), scope='operational_export')
+
+
+@app.post('/api/batch-orders')
+def batch_orders(orders: list[Order]):
+    now = datetime.now(timezone.utc)
+    now_iso = iso(now)
+    created_count = 0
+    with database() as db:
+        for order in orders:
+            if order.purchased > now:
+                continue
+            p = probability(vector(order.state, order.purchased, order.due))
+            cursor = db.execute(
+                'INSERT OR IGNORE INTO orders VALUES (?,?,?,?,?,?,?,?,NULL,NULL)',
+                (order.id, order.state, iso(order.purchased), iso(order.due), p,
+                 int(p >= MODEL['threshold']), MODEL['version'], now_iso)
+            )
+            created_count += cursor.rowcount
+    return dict(received=len(orders), inserted=created_count)
+
+
+@app.post('/api/batch-outcomes')
+def batch_outcomes(outcomes: list[Delivery]):
+    now = datetime.now(timezone.utc)
+    now_iso = iso(now)
+    updated_count = 0
+    with database() as db:
+        for ev in outcomes:
+            del_iso = iso(ev.delivered)
+            cursor = db.execute(
+                'UPDATE orders SET delivered=?, reported=COALESCE(reported,?) '
+                'WHERE id=? AND delivered IS NULL AND purchased <= ?',
+                (del_iso, now_iso, ev.id, del_iso)
+            )
+            updated_count += cursor.rowcount
+    return dict(received=len(outcomes), updated=updated_count)
+
+
+@app.get('/api/pipeline-status')
+def pipeline_status():
+    now = datetime.now(timezone.utc)
+    now_iso = iso(now)
+    with database() as db:
+        total = db.execute('SELECT COUNT(*) FROM orders').fetchone()[0]
+        resolved = db.execute('SELECT COUNT(*) FROM orders WHERE delivered IS NOT NULL').fetchone()[0]
+        # Stale: due more than 14 days ago with no delivered outcome
+        stale_threshold = datetime.fromtimestamp(now.timestamp() - 14 * 86400, timezone.utc)
+        stale_iso = iso(stale_threshold)
+        stale = db.execute('SELECT COUNT(*) FROM orders WHERE delivered IS NULL AND due < ?', (stale_iso,)).fetchone()[0]
+
+    staged_report = None
+    report_file = ROOT / 'staged/promotion-report.json'
+    if report_file.exists():
+        try:
+            staged_report = json.loads(report_file.read_text())
+        except Exception:
+            pass
+
+    return dict(
+        as_of=now_iso,
+        live_model_version=MODEL['version'],
+        total_orders=total,
+        resolved_orders=resolved,
+        pending_orders=total - resolved,
+        stale_orders=stale,
+        staged_candidate=staged_report is not None,
+        staged_report=staged_report,
+        gated_replacement_policy='Operator-confirmed shadow promotion; no automatic hot-swapping.'
+    )
+
+
 @app.get('/research-study.html')
 def research_study(): return FileResponse(ROOT/'research/report.html')
