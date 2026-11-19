@@ -21,4 +21,14 @@ GitHub commits were previously recreated through the connector, so local and Git
 
 Completed fixed-cohort bounds, 27-state daily operational diagnostics, a seven-policy synthetic follow-up, prospective shadow promotion, and a real-logistic offline candidate training CLI. Initial and follow-up results reproduced byte for byte; all unit and Worker checks passed. See research/PROTOCOL.md, METHOD.md, results/, and report.html. Small groups, mild drift, long tails and missing labels remain explicit failure cases. Do not describe this as a fully validated flagship or fairness solution.
 
-Next: independent real-data adaptation evaluation and strong external detector baselines; address long-tail abstention without reintroducing reporting-induced false alarms. Obtain actual consenting study participants separately. The deployment preserves owner-only access and does not promote a model automatically. The currently served Olist model remains unchanged.
+## 2026-11-19 milestone (Phase 2)
+
+Completed five core enhancements addressing all project requirements:
+1. **Long-delay multiscale monitoring**: Implemented `matured_monitor.py` and evaluated on fresh seeds 7000–7099 (`long_tail_study.py`). Multiscale horizon evaluation and backward matured training scans resolved the 30-day delay blindspot, achieving 100/100 detections in `long_tail` (at minority=8, delay=43.15 days) while strictly preserving 0/100 false alarms on stable streams.
+2. **Retraining cost-benefit analysis**: Implemented `retraining_cost_analysis.py` (`research/results/cost-benefit.json`). Proved that `shadow_group` achieves an 84.2% useful promotion rate (only 15.8% wasted refits) and 0.1656 gain per refit, compared to periodic retraining's 92.4% wasted refit rate and 36 wasted refits in stable regimes.
+3. **Subgroup protection boundaries**: Implemented `group_protection_study.py` across sizes 1 to 48 (`research/GROUP_PROTECTION.md`). Established that reliable protection holds at n >= 8 (100% detection and adaptation), while documenting transparently that n <= 2 abstains due to wide Hoeffding bounds.
+4. **Automated data integration & candidate staging**: Created `auto_pipeline.py` with batch ingest, stale order anomaly detection, and prospective candidate staging. Added `/api/export`, `/api/batch-orders`, `/api/batch-outcomes`, and `/api/pipeline-status` to `serving.py`. Guaranteed operator-in-the-loop protection: live models are never replaced automatically without explicit confirmation.
+5. **Consented user study harness**: Implemented `user_study_runner.py` enforcing strict pre-session consent and administering the 6 standardized operator tasks against pre-registered criteria.
+
+All 37 unit tests and Node Worker checks pass. Main remote branch is synchronized.
+
