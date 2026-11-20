@@ -57,11 +57,14 @@ def ingest_from_dict(payload, db_path=None):
         outcomes = payload.get('outcomes', [])
         for oc in outcomes:
             del_time = datetime.fromisoformat(oc['delivered'].replace('Z', '+00:00'))
+            # Strictly reject future delivery dates
+            if del_time > now:
+                continue
             del_iso = iso(del_time)
             cur = db.execute(
                 'UPDATE orders SET delivered=?, reported=COALESCE(reported,?) '
-                'WHERE id=? AND delivered IS NULL AND purchased <= ?',
-                (del_iso, now_iso, oc['id'], del_iso)
+                'WHERE id=? AND delivered IS NULL AND purchased <= ? AND ? <= ?',
+                (del_iso, now_iso, oc['id'], del_iso, del_iso, now_iso)
             )
             outcomes_updated += cur.rowcount
 

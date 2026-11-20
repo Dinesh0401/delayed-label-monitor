@@ -19,7 +19,34 @@ const saved=await req('outcomes',outcome);assert.equal(saved.status,200);assert.
 assert.equal((await req('outcomes',{...outcome,delivered:'2026-01-11T00:00:00Z'})).status,409);
 const m=(await req('metrics')).data[0];assert.equal(m.pending,0);assert.equal(m.lower,m.upper);
 assert.equal((await req('orders')).data.length,1);
-console.log('Worker: model parity, SQLite-backed workflow, retries, invalid dates, conflicts and bounds passed.');
+
+// Test batch orders, batch outcomes, export and pipeline-status
+const batchOrders=[
+  {id:'BATCH-1',state:'SP',purchased:'2026-01-01T10:00:00Z',due:'2026-01-10T00:00:00Z'},
+  {id:'BATCH-2',state:'RJ',purchased:'2026-01-02T10:00:00Z',due:'2026-01-12T00:00:00Z'}
+];
+const bRes=await req('batch-orders',batchOrders);
+assert.equal(bRes.status,200);assert.equal(bRes.data.inserted,2);
+
+// Batch outcomes rejecting future deliveries (e.g. 2099)
+const bOutFuture=[{id:'BATCH-2',delivered:'2099-01-01T00:00:00Z'}];
+const bOutFutRes=await req('batch-outcomes',bOutFuture);
+assert.equal(bOutFutRes.status,200);assert.equal(bOutFutRes.data.updated,0);
+
+// Valid batch outcome
+const bOutValid=[{id:'BATCH-1',delivered:'2026-01-08T12:00:00Z'}];
+const bOutValRes=await req('batch-outcomes',bOutValid);
+assert.equal(bOutValRes.status,200);assert.equal(bOutValRes.data.updated,1);
+
+// Export route
+const expRes=await req('export');
+assert.equal(expRes.status,200);assert.equal(expRes.data.total,3);
+
+// Pipeline status route
+const pipeRes=await req('pipeline-status');
+assert.equal(pipeRes.status,200);assert.equal(pipeRes.data.total_orders,3);assert.equal(pipeRes.data.resolved_orders,2);
+
+console.log('Worker: model parity, SQLite-backed workflow, retries, invalid dates, conflicts, batch endpoints and bounds passed.');
 const diagnosis=await req('diagnostics');assert.equal(diagnosis.status,200);assert.ok(Array.isArray(diagnosis.data.groups));
 const collected=diagnose([{state:'SP',model_version:'v1',created:'2026-01-01T10:00:00Z',reported:null}],new Date('2026-01-02T00:00:00Z'));
 assert.equal(collected.groups[0].status,'collecting_reference');assert.equal(collected.groups[0].days_until_first_look,66);

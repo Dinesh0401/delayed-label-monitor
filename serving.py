@@ -165,14 +165,25 @@ def batch_outcomes(outcomes: list[Delivery]):
     updated_count = 0
     with database() as db:
         for ev in outcomes:
+            # Strictly reject future delivery dates
+            if ev.delivered > now:
+                continue
             del_iso = iso(ev.delivered)
+            # Ensure delivery is between purchase and now
             cursor = db.execute(
                 'UPDATE orders SET delivered=?, reported=COALESCE(reported,?) '
-                'WHERE id=? AND delivered IS NULL AND purchased <= ?',
-                (del_iso, now_iso, ev.id, del_iso)
+                'WHERE id=? AND delivered IS NULL AND purchased <= ? AND ? <= ?',
+                (del_iso, now_iso, ev.id, del_iso, del_iso, now_iso)
             )
             updated_count += cursor.rowcount
     return dict(received=len(outcomes), updated=updated_count)
+
+
+@app.post('/api/model/reload')
+def reload_model_endpoint():
+    global MODEL
+    MODEL = json.loads((ROOT / 'serving-model.json').read_text())
+    return dict(reloaded=True, version=MODEL['version'])
 
 
 @app.get('/api/pipeline-status')

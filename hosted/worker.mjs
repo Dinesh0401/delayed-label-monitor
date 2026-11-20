@@ -29,7 +29,35 @@ export function createHandler(model,html,study,research,study2='Research report 
    if(request.method==='POST'){
     const origin=request.headers.get('Origin');if(origin&&origin!==url.origin)fail(403,'Cross-origin writes are not allowed');
     if(!request.headers.get('Content-Type')?.startsWith('application/json'))fail(415,'Send JSON');
-    const raw=await request.text();if(raw.length>4096)fail(413,'Request is too large');let b;try{b=JSON.parse(raw)}catch{fail(400,'Invalid JSON')}
+    const raw=await request.text();if(raw.length>65536)fail(413,'Request is too large');let b;try{b=JSON.parse(raw)}catch{fail(400,'Invalid JSON')}
+    if(path==='/api/batch-orders'){
+     if(!Array.isArray(b))fail(422,'Expected an array of orders');
+     let inserted=0;
+     for(const item of b){
+      try{
+       const o=normalizeOrder(item,model);
+       await env.DB.prepare('INSERT OR IGNORE INTO orders VALUES (?,?,?,?,?,?,?,?,NULL,NULL)').bind(o.id,o.state,o.purchased,o.due,o.probability,o.predicted,o.model_version,o.created).run();
+       inserted++;
+      }catch(_){}
+     }
+     return json({received:b.length,inserted});
+    }
+    if(path==='/api/batch-outcomes'){
+     if(!Array.isArray(b))fail(422,'Expected an array of outcomes');
+     let updated=0;const now=Date.now(),nowIso=new Date().toISOString();
+     for(const item of b){
+      try{
+       if(typeof item.id!=='string')continue;
+       const delivered=timestamp(item.delivered);
+       if(Date.parse(delivered)>now)continue; // Strictly reject future deliveries
+       const row=await env.DB.prepare('SELECT purchased,delivered FROM orders WHERE id=?').bind(item.id).first();
+       if(!row||row.delivered||Date.parse(delivered)<Date.parse(row.purchased))continue;
+       await env.DB.prepare('UPDATE orders SET delivered=?,reported=? WHERE id=? AND delivered IS NULL').bind(delivered,nowIso,item.id).run();
+       updated++;
+      }catch(_){}
+     }
+     return json({received:b.length,updated});
+    }
     if(!b||typeof b!=='object')fail(422,'Expected an object');
     if(path==='/api/orders'){
      const o=normalizeOrder(b,model);
@@ -50,6 +78,16 @@ export function createHandler(model,html,study,research,study2='Research report 
    }
    if(request.method==='GET'&&path==='/api/diagnostics')return json(diagnose((await env.DB.prepare('SELECT * FROM orders').all()).results));
    if(request.method==='GET'&&path==='/api/orders')return json((await env.DB.prepare('SELECT * FROM orders ORDER BY created DESC,id LIMIT 200').all()).results);
+   if(request.method==='GET'&&path==='/api/export'){
+    const rows=(await env.DB.prepare('SELECT * FROM orders ORDER BY created ASC').all()).results;
+    return json({orders:rows,total:rows.length,scope:'hosted_export'});
+   }
+   if(request.method==='GET'&&path==='/api/pipeline-status'){
+    const rows=(await env.DB.prepare('SELECT COUNT(*) as n,COUNT(delivered) as resolved FROM orders').all()).results[0];
+    const staleThreshold=new Date(Date.now()-14*86400000).toISOString();
+    const staleRows=(await env.DB.prepare('SELECT COUNT(*) as stale FROM orders WHERE delivered IS NULL AND due < ?').bind(staleThreshold).all()).results[0];
+    return json({as_of:new Date().toISOString(),live_model_version:model.version,total_orders:rows.n,resolved_orders:rows.resolved,pending_orders:rows.n-rows.resolved,stale_orders:staleRows.stale,hosted_runtime:'Cloudflare Worker (D1)'});
+   }
    if(request.method==='GET'&&path==='/api/metrics'){
     const {results}=await env.DB.prepare('SELECT state,COUNT(*) n,COUNT(delivered) resolved,SUM(CASE WHEN delivered IS NOT NULL AND predicted=(delivered>=due) THEN 1 ELSE 0 END) correct FROM orders GROUP BY state ORDER BY state').all();
     return json(results.map(r=>({state:r.state,total:r.n,pending:r.n-r.resolved,observed:r.resolved?r.correct/r.resolved:null,lower:r.correct/r.n,upper:(r.correct+r.n-r.resolved)/r.n})));

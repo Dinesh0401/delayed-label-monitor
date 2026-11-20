@@ -36,7 +36,15 @@ class AutoPipelineTests(unittest.TestCase):
         self.assertEqual(r.status_code, 200)
         self.assertEqual(r.json()['inserted'], 2)
 
-        # Batch outcomes
+        # Batch outcomes - reject future delivery dates (e.g. year 2099)
+        outcomes_invalid = [
+            dict(id='BATCH-2', delivered='2099-01-01T00:00:00Z')
+        ]
+        r_out_inv = self.client.post('/api/batch-outcomes', json=outcomes_invalid)
+        self.assertEqual(r_out_inv.status_code, 200)
+        self.assertEqual(r_out_inv.json()['updated'], 0)  # Future date must be rejected
+
+        # Valid batch outcome
         outcomes = [
             dict(id='BATCH-1', delivered='2026-01-08T12:00:00Z')
         ]
