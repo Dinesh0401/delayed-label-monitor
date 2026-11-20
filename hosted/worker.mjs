@@ -109,9 +109,16 @@ export function diagnose(rows,now=new Date()){
   function cohort(lo,hi){const chosen=events.filter(r=>Date.parse(r.created)>=first+lo*DAY&&Date.parse(r.created)<first+hi*DAY),known=chosen.filter(r=>r.reported&&Date.parse(r.reported)<=cutoff);return [known.filter(r=>Boolean(r.predicted)!==(Date.parse(r.delivered)>=Date.parse(r.due))).length,chosen.length-known.length,chosen.length]}
   const ref=cohort(0,30),cur=cohort(day-37,day-9);
   if(!ref[2]||!cur[2]){output.push({...base,status:'insufficient_data'});continue}
-  const tail=.05/(2*27*120),radius=n=>Math.sqrt(Math.log(1/tail)/(2*n));
-  const upper=Math.min(1,(ref[0]+ref[1])/ref[2]+radius(ref[2])),lower=Math.max(0,cur[0]/cur[2]-radius(cur[2])),alarm=lower>upper+.05;
-  output.push({...base,status:alarm?'harm_evidence':'no_confirmed_harm',alarm,reference_upper:upper,current_lower:lower,current_upper:Math.min(1,(cur[0]+cur[1])/cur[2]+radius(cur[2])),margin:.05,reference_n:ref[2],current_n:cur[2],pending:cur[1]});
+  const isMultiscale=day>=88,curMature=isMultiscale?cohort(day-58,day-30):null;
+  const scales=isMultiscale&&curMature&&curMature[2]>0?2:1;
+  const tail=.05/(2*27*120*scales),radius=n=>Math.sqrt(Math.log(1/tail)/(2*n));
+  const upper=Math.min(1,(ref[0]+ref[1])/ref[2]+radius(ref[2]));
+  const lowerShort=Math.max(0,cur[0]/cur[2]-radius(cur[2]));
+  const lowerMature=scales===2?Math.max(0,curMature[0]/curMature[2]-radius(curMature[2])):0;
+  const alarmShort=lowerShort>upper+.05,alarmMature=scales===2&&lowerMature>upper+.05;
+  const alarm=alarmShort||alarmMature;
+  const scale=alarmShort&&alarmMature?'both':(alarmShort?'short':(alarmMature?'mature':'none'));
+  output.push({...base,status:alarm?'harm_evidence':'no_confirmed_harm',alarm,scale_triggered:scale,multiscale_active:scales===2,reference_upper:upper,current_lower:Math.max(lowerShort,lowerMature),current_upper:Math.min(1,(cur[0]+cur[1])/cur[2]+radius(cur[2])),margin:.05,reference_n:ref[2],current_n:cur[2],pending:cur[1]});
  }
- return {as_of:new Date(cutoff).toISOString(),groups:output,policy:'Daily fixed cohorts, 5 percentage-point harm margin; no automatic promotion',assumptions:'Independent bounded losses, fixed model, fixed 27 states; one 120-look budget per model version. Reusing versions or repeated restarts invalidates the budget.'};
+ return {as_of:new Date(cutoff).toISOString(),groups:output,policy:'Daily multiscale fixed cohorts, 5 percentage-point harm margin; no automatic promotion',assumptions:'Independent bounded losses, fixed model, fixed 27 states; one 120-look budget per model version. Reusing versions or repeated restarts invalidates the budget.'};
 }
