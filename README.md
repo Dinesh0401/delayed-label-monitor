@@ -3,7 +3,7 @@
 **MLOps monitoring for delivery predictions with delayed outcomes.** Score an order today, verify the prediction when delivery is confirmed, and see how much of the model's measured accuracy is still uncertain.
 
 [**Open hosted dashboard**](https://delayed-label-monitor-demo.bubblybobcat3.chatgpt.site/) · [Historical delivery study](https://delayed-label-monitor-demo.bubblybobcat3.chatgpt.site/delivery-study.html) · [Drift and retraining experiments](https://delayed-label-monitor-demo.bubblybobcat3.chatgpt.site/research-study.html)
-
+ https://dinesh0401.github.io/delayed-label-monitor/
 The hosted dashboard uses operator-entered outcomes and currently requires access. The local workflow below provides the same prediction and verification demo.
 
 ## System design
