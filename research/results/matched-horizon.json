@@ -1,0 +1,105 @@
+{
+  "days": 160,
+  "seed_range": [
+    10000,
+    10099
+  ],
+  "rows": [
+    {
+      "scenario": "stable",
+      "minority_per_day": 2,
+      "runs": 100,
+      "frozen_error": 0.123125,
+      "adaptive_error": 0.123125,
+      "gain_pp": 0.0,
+      "paired_bootstrap_95_pp": [
+        0.0,
+        0.0
+      ],
+      "detections": 0,
+      "false_alarm_runs": 0,
+      "refits": 0,
+      "promotions": 0
+    },
+    {
+      "scenario": "stable",
+      "minority_per_day": 8,
+      "runs": 100,
+      "frozen_error": 0.1205859375,
+      "adaptive_error": 0.1205859375,
+      "gain_pp": 0.0,
+      "paired_bootstrap_95_pp": [
+        0.0,
+        0.0
+      ],
+      "detections": 0,
+      "false_alarm_runs": 0,
+      "refits": 0,
+      "promotions": 0
+    },
+    {
+      "scenario": "stable",
+      "minority_per_day": 24,
+      "runs": 100,
+      "frozen_error": 0.12020572916666666,
+      "adaptive_error": 0.12020572916666666,
+      "gain_pp": 0.0,
+      "paired_bootstrap_95_pp": [
+        0.0,
+        0.0
+      ],
+      "detections": 0,
+      "false_alarm_runs": 0,
+      "refits": 0,
+      "promotions": 0
+    },
+    {
+      "scenario": "long_tail",
+      "minority_per_day": 2,
+      "runs": 100,
+      "frozen_error": 0.6926249999999999,
+      "adaptive_error": 0.6801875,
+      "gain_pp": 1.24375,
+      "paired_bootstrap_95_pp": [
+        0.6249999999999999,
+        1.9625
+      ],
+      "detections": 100,
+      "false_alarm_runs": 0,
+      "refits": 186,
+      "promotions": 12
+    },
+    {
+      "scenario": "long_tail",
+      "minority_per_day": 8,
+      "runs": 100,
+      "frozen_error": 0.6902812500000001,
+      "adaptive_error": 0.53415625,
+      "gain_pp": 15.6125,
+      "paired_bootstrap_95_pp": [
+        15.4203125,
+        15.812539062499999
+      ],
+      "detections": 100,
+      "false_alarm_runs": 0,
+      "refits": 100,
+      "promotions": 100
+    },
+    {
+      "scenario": "long_tail",
+      "minority_per_day": 24,
+      "runs": 100,
+      "frozen_error": 0.6909010416666668,
+      "adaptive_error": 0.5123125000000001,
+      "gain_pp": 17.858854166666667,
+      "paired_bootstrap_95_pp": [
+        17.738020833333334,
+        17.979700520833333
+      ],
+      "detections": 100,
+      "false_alarm_runs": 0,
+      "refits": 100,
+      "promotions": 100
+    }
+  ]
+}
