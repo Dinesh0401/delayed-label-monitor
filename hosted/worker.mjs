@@ -36,8 +36,9 @@ export function createHandler(model,html,study,research,study2='Research report 
      for(const item of b){
       try{
        const o=normalizeOrder(item,model);
-       await env.DB.prepare('INSERT OR IGNORE INTO orders VALUES (?,?,?,?,?,?,?,?,NULL,NULL)').bind(o.id,o.state,o.purchased,o.due,o.probability,o.predicted,o.model_version,o.created).run();
-       inserted++;
+       const res=await env.DB.prepare('INSERT OR IGNORE INTO orders VALUES (?,?,?,?,?,?,?,?,NULL,NULL)').bind(o.id,o.state,o.purchased,o.due,o.probability,o.predicted,o.model_version,o.created).run();
+       const changes=res?.changes??res?.meta?.changes??0;
+       if(changes>0)inserted++;
       }catch(_){}
      }
      return json({received:b.length,inserted});
