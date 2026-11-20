@@ -86,7 +86,7 @@ def run(days, policy):
 
 
 if __name__ == "__main__":
-    with open("benchmark-results.csv","w",newline="") as f:
+    with open("research/legacy/results/benchmark-results.csv","w",newline="") as f:
         writer=csv.writer(f)
         writer.writerow(["scenario","policy","majority_error","minority_error","refits","unchanged_refits"])
         for scenario in ("stable","delay","harm","both"):

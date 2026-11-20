@@ -12,7 +12,7 @@ class ServingTests(unittest.TestCase):
   if self.old is None:os.environ.pop('DELIVERY_DB',None)
   else:os.environ['DELIVERY_DB']=self.old
  def test_sklearn_parity(self):
-  for f in json.loads(Path('inference-fixtures.json').read_text()):self.assertAlmostEqual(probability(f['features']),f['expected'],places=12)
+  for f in json.loads(Path('research/fixtures/inference-fixtures.json').read_text()):self.assertAlmostEqual(probability(f['features']),f['expected'],places=12)
  def test_workflow_retry_conflict_and_persistence(self):
   b=dict(id='TEST-1',state='SP',purchased='2026-01-01T10:00:00Z',due='2026-01-10T00:00:00Z')
   r=self.client.post('/api/orders',json=b);self.assertEqual(r.status_code,200)

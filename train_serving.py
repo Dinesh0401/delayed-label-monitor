@@ -24,5 +24,5 @@ artifact=dict(version="olist-logistic-v1",features=list(x.columns),coefficients=
               states=sorted(train.customer_state.unique().tolist()),training_cutoff="2018-01-01",test_period="Apr–Aug 2018")
 Path(__file__).with_name("serving-model.json").write_text(json.dumps(artifact,indent=2))
 fixtures=[dict(features=tx.iloc[i].astype(float).tolist(),expected=float(probs[i])) for i in range(30)]
-Path(__file__).with_name("inference-fixtures.json").write_text(json.dumps(fixtures))
+(Path(__file__).with_name("research") / "fixtures/inference-fixtures.json").write_text(json.dumps(fixtures))
 print({k:v for k,v in artifact.items() if k not in ('features','coefficients','states')})

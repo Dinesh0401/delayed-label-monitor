@@ -4,7 +4,7 @@ import {readFileSync} from 'node:fs';
 import {adapter} from './db-adapter.mjs';
 import {createHandler,probability,diagnose} from './worker.mjs';
 const model=JSON.parse(readFileSync('serving-model.json'));
-for(const f of JSON.parse(readFileSync('inference-fixtures.json')))assert.ok(Math.abs(probability(f.features,model)-f.expected)<1e-12);
+for(const f of JSON.parse(readFileSync('research/fixtures/inference-fixtures.json')))assert.ok(Math.abs(probability(f.features,model)-f.expected)<1e-12);
 const db=new DatabaseSync(':memory:');db.exec(readFileSync('hosted/drizzle/0000_delivery_orders.sql','utf8'));
 const app=createHandler(model,'html','study',{}),env={DB:adapter(db)};
 async function req(path,body){const r=await app.fetch(new Request('https://example.test/api/'+path,body?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}:{}),env);return {status:r.status,data:await r.json()}}
