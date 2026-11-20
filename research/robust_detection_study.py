@@ -3,7 +3,7 @@ import json
 import math
 from pathlib import Path
 from statistics import mean
-from detection_study import scores, METHODS, CHANGE, DAYS
+from research.detection_study import scores, METHODS, CHANGE, DAYS
 
 CALIBRATION_SEEDS = range(2000,2100)
 TEST_SEEDS = range(3000,3300)
@@ -66,7 +66,7 @@ def run():
 
 if __name__=='__main__':
     result=run()
-    Path(__file__).with_name('robust-detection-results.json').write_text(
+    (Path(__file__).resolve().parents[1] / 'robust-detection-results.json').write_text(
         json.dumps(result,indent=2)+'\n')
     for row in result['rows']:
         print(row)

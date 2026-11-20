@@ -1,6 +1,6 @@
 import unittest
-from robust_detection_study import empirical_threshold, summarize, CALIBRATION_SEEDS, TEST_SEEDS
-from detection_study import scores
+from research.robust_detection_study import empirical_threshold, summarize, CALIBRATION_SEEDS, TEST_SEEDS
+from research.detection_study import scores
 
 class CalibrationTests(unittest.TestCase):
     def test_finite_sample_rank(self):

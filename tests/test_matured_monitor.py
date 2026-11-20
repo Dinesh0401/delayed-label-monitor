@@ -1,7 +1,7 @@
 import unittest
 import numpy as np
 from matured_monitor import multiscale_harmful, find_matured_training_cohort
-from research_suite import stream, counts, COUNT_CACHE
+from research.research_suite import stream, counts, COUNT_CACHE
 
 class MaturedMonitorTests(unittest.TestCase):
     def test_multiscale_harmful_detection(self):
@@ -40,7 +40,7 @@ class MaturedMonitorTests(unittest.TestCase):
         self.assertTrue(np.all(arrival[mask] <= now))
 
     def test_run_matured_long_tail_detection(self):
-        from long_tail_study import run_matured
+        from research.long_tail_study import run_matured
         data = stream(7000, 'long_tail', 8)
         COUNT_CACHE.clear()
         res = run_matured(data, 'long_tail', days=120)
@@ -52,7 +52,7 @@ class MaturedMonitorTests(unittest.TestCase):
         self.assertEqual(res['promotions'], 0)
 
     def test_run_matured_adaptation_success_at_160_days(self):
-        from long_tail_study import run_matured
+        from research.long_tail_study import run_matured
         data = stream(7000, 'long_tail', 8, days=160)
         COUNT_CACHE.clear()
         res = run_matured(data, 'long_tail', days=160)

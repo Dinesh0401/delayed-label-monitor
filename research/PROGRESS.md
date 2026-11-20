@@ -3,7 +3,7 @@
 Completed milestone: reporting-regime calibration ablation. Reproduce with:
 
 ```sh
-python robust_detection_study.py
+python -m research.robust_detection_study
 python -m unittest test_robust_detection -v
 ```
 

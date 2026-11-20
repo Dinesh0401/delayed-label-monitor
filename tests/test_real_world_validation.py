@@ -4,7 +4,7 @@ import json
 import unittest
 from pathlib import Path
 
-from real_world_validation import load_weekly_cohorts, simulate_real_world_policies
+from research.real_world_validation import load_weekly_cohorts, simulate_real_world_policies
 
 
 class RealWorldValidationTests(unittest.TestCase):

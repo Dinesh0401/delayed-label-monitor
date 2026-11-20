@@ -117,7 +117,7 @@ def analyze_cost(summary_path):
     }
 
 def main():
-    root = Path(__file__).parent
+    root = Path(__file__).resolve().parents[1]
     summary_path = root / 'research/results/summary.json'
     analysis = analyze_cost(str(summary_path))
 

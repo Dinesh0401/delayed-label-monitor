@@ -20,7 +20,7 @@ import numpy as np
 
 from cautious_monitor import promotion_bound
 from matured_monitor import find_matured_training_cohort, multiscale_harmful
-from research_suite import (
+from research.research_suite import (
     AGE,
     CHANGE,
     COUNT_CACHE,

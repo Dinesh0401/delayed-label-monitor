@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import average_precision_score,brier_score_loss,f1_score
-from delivery_study import load_orders,features,TRAIN_END,TEST_START,TEST_END
+from research.delivery_study import load_orders,features,TRAIN_END,TEST_START,TEST_END
 from pathlib import Path
 df=load_orders(sys.argv[1])
 train=df[(df.purchase<TRAIN_END)&(df.delivery<TRAIN_END)]

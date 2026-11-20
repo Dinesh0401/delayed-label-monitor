@@ -48,7 +48,7 @@ def main():
             rows.append(dict(scenario=scenario,method=method,threshold=thresholds[method],
                              false_alarm_runs=false,runs=100,eligible_runs=eligible,
                              detected_runs=len(delays),mean_detection_delay=mean(delays) if delays else None))
-    target=Path(__file__).parent/"research/legacy/results/detection-results.json"
+    target=Path(__file__).resolve().parents[1]/"research/legacy/results/detection-results.json"
     target.write_text(json.dumps(dict(calibration_seeds=[0,99],test_seeds=[1000,1099],rows=rows),indent=2))
     print(target.read_text())
 if __name__=="__main__":main()

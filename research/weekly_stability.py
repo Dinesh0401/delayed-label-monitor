@@ -4,7 +4,7 @@ from collections import defaultdict
 from pathlib import Path
 from statistics import mean, median
 
-directory = Path(__file__).resolve().parent / "delivery-results"
+directory = Path(__file__).resolve().parents[1] / "delivery-results"
 
 
 def audit(rows):

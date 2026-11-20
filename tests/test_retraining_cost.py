@@ -1,7 +1,7 @@
 import json
 import unittest
 from pathlib import Path
-from retraining_cost_analysis import analyze_cost
+from research.retraining_cost_analysis import analyze_cost
 
 class RetrainingCostTests(unittest.TestCase):
     def setUp(self):

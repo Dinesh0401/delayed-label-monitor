@@ -1,7 +1,7 @@
 import unittest
 import numpy as np
 from cautious_monitor import interval,harmful,promotion_bound
-from research_suite import stream,counts,train_and_gate,COUNT_CACHE
+from research.research_suite import stream,counts,train_and_gate,COUNT_CACHE
 
 class CautiousTests(unittest.TestCase):
  def test_pending_outcomes_cannot_create_error_evidence(self):
@@ -61,14 +61,14 @@ class OperationalTests(unittest.TestCase):
 
 class ShadowTests(unittest.TestCase):
  def test_prospective_validation_precedes_promotion(self):
-  from research_suite import run
+  from research.research_suite import run
   data=stream(6000,'both',8);COUNT_CACHE.clear();trace=[]
   result=run(data,'shadow_group','both',trace)
   self.assertEqual(result['promotions'],1)
   for event in trace:
    if event['action']=='promote':self.assertGreaterEqual(event['day'],event['opened']+23)
  def test_future_errors_do_not_change_past_decisions(self):
-  from research_suite import run
+  from research.research_suite import run
   data=stream(6000,'both',8);COUNT_CACHE.clear();before=[]
   run(data,'shadow_group','both',before)
   altered=[tuple(x.copy() if isinstance(x,np.ndarray) else x for x in d) for d in data]

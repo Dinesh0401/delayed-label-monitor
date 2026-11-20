@@ -4,7 +4,7 @@ Identifies exact empirical sample-size boundaries for reliable detection and ada
 import json
 from pathlib import Path
 import numpy as np
-from research_suite import stream, counts, COUNT_CACHE, run, DAYS, WARM, CHANGE
+from research.research_suite import stream, counts, COUNT_CACHE, run, DAYS, WARM, CHANGE
 
 SIZES = (1, 2, 4, 8, 16, 24, 48)
 SCENARIOS = ('stable', 'both', 'harm')
