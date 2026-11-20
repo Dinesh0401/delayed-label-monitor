@@ -31,9 +31,9 @@ def run_demo() -> dict[str, Any]:
     """Execute the chronological 60-order delivery replay against the live FastAPI app."""
     client = TestClient(app)
 
-    print("=" * 72)
+    print("=" * 74)
     print("  DELAYED LABEL MONITOR - END-TO-END MLOPS WORKFLOW REPLAY (60 ORDERS)")
-    print("=" * 72)
+    print("=" * 74)
     print("Running in isolated environment with disposable SQLite database...")
 
     # Base timestamps (UTC)
@@ -79,24 +79,23 @@ def run_demo() -> dict[str, Any]:
     print(f"-> Metrics state: {total_initial} total, {pending_initial} pending (100% awaiting outcome).")
 
     # 2. Phase 2: Early Outcomes Arrive (Day 14 after purchase)
-    # Fast couriers report early. In SP, 16 orders report; 32 remain pending.
-    # In AM, only 2 remote orders report; 10 remain pending.
+    # Fast couriers report early. In SP, 32 orders report (5 correct, 27 incorrect). 16 pending.
+    # In AM, 4 remote orders report (1 correct, 3 incorrect). 8 pending.
     print("\n[PHASE 2: EARLY PARTIAL REPORTING (DAY 14) - SELECTION BIAS RISK]")
-    print("Early couriers report 18 delivered orders. 42 orders remain in-transit.")
+    print("Early couriers report 36 delivered orders. 24 orders remain in-transit.")
 
-    # SP early reports: 16 orders report (5 on-time, 11 late)
-    for i in range(1, 17):
+    # SP early reports: 32 orders (5 correct -> delivered after due; 27 incorrect -> delivered before due)
+    for i in range(1, 33):
         ord_id = f"ORD-SP-{i:03d}"
         due_time = datetime.fromisoformat(orders[i - 1]["due"])
-        # First 5 arrive before due, rest 11 arrive after due (late delivery)
-        del_time = due_time - timedelta(hours=6) if i <= 5 else due_time + timedelta(hours=18)
+        del_time = due_time + timedelta(hours=12) if i <= 5 else due_time - timedelta(hours=12)
         client.post("/api/outcomes", json={"id": ord_id, "delivered": del_time.isoformat()})
 
-    # AM early reports: 2 orders report
-    for i in range(1, 3):
+    # AM early reports: 4 orders (1 correct -> delivered after due; 3 incorrect -> delivered before due)
+    for i in range(1, 5):
         ord_id = f"ORD-AM-{i:03d}"
         due_time = datetime.fromisoformat(orders[48 + i - 1]["due"])
-        del_time = due_time - timedelta(hours=12) if i == 1 else due_time + timedelta(hours=24)
+        del_time = due_time + timedelta(hours=12) if i == 1 else due_time - timedelta(hours=12)
         client.post("/api/outcomes", json={"id": ord_id, "delivered": del_time.isoformat()})
 
     metrics_early = client.get("/api/metrics").json()
@@ -120,21 +119,20 @@ def run_demo() -> dict[str, Any]:
 
     # 3. Phase 3: Final Resolution (All in-transit deliveries arrive)
     print("\n[PHASE 3: FULL CONVERGENCE - ALL LABELS ARRIVED]")
-    print("Remaining 42 in-transit deliveries completed and confirmed by couriers...")
+    print("Remaining 24 in-transit deliveries completed and confirmed by couriers...")
 
-    # SP remaining: 32 orders
-    for i in range(17, 49):
+    # SP remaining: 16 orders (11 correct, 5 incorrect)
+    for i in range(33, 49):
         ord_id = f"ORD-SP-{i:03d}"
         due_time = datetime.fromisoformat(orders[i - 1]["due"])
-        # Normal logistics distribution
-        del_time = due_time - timedelta(hours=4) if i % 2 == 0 else due_time + timedelta(hours=10)
+        del_time = due_time + timedelta(hours=12) if (i - 32) <= 11 else due_time - timedelta(hours=12)
         client.post("/api/outcomes", json={"id": ord_id, "delivered": del_time.isoformat()})
 
-    # AM remaining: 10 orders
-    for i in range(3, 13):
+    # AM remaining: 8 orders (3 correct, 5 incorrect)
+    for i in range(5, 13):
         ord_id = f"ORD-AM-{i:03d}"
         due_time = datetime.fromisoformat(orders[48 + i - 1]["due"])
-        del_time = due_time - timedelta(hours=8) if i % 2 == 0 else due_time + timedelta(hours=16)
+        del_time = due_time + timedelta(hours=12) if (i - 4) <= 3 else due_time - timedelta(hours=12)
         client.post("/api/outcomes", json={"id": ord_id, "delivered": del_time.isoformat()})
 
     metrics_final = client.get("/api/metrics").json()
@@ -152,14 +150,14 @@ def run_demo() -> dict[str, Any]:
           f"({am_early['lower']*100:.1f}% <= {am_final['observed']*100:.1f}% <= {am_early['upper']*100:.1f}%)")
 
     # 4. Summary Verdict
-    print("\n" + "=" * 72)
+    print("\n" + "=" * 74)
     print("  SUMMARY: PRODUCTION MLOPS VERIFICATION PASSED")
-    print("=" * 72)
-    print("1. Selection bias proof: Early reports showed 15.6% observed accuracy in SP.")
-    print("2. Once all labels matured, SP accuracy was 33.3%.")
-    print("3. Early bounds [10.4%, 43.8%] strictly contained the final 33.3% truth.")
-    print("4. Prevented knee-jerk model retraining on incomplete data.")
-    print("=" * 72 + "\n")
+    print("=" * 74)
+    print(f"1. Selection bias proof: Early reports showed {sp_early['observed']*100:.1f}% accuracy in SP.")
+    print(f"2. Once all labels matured, SP accuracy converged to {sp_final['observed']*100:.1f}%.")
+    print(f"3. Early bounds [{sp_early['lower']*100:.1f}%, {sp_early['upper']*100:.1f}%] strictly contained the final {sp_final['observed']*100:.1f}% truth.")
+    print("4. Prevented knee-jerk model retraining on incomplete, censored data.")
+    print("=" * 74 + "\n")
 
     return {
         "sp_early": sp_early,

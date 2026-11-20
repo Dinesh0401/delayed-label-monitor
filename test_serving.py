@@ -50,5 +50,12 @@ class ServingTests(unittest.TestCase):
   text = js_entry.read_text(encoding='utf-8')
   self.assertIn('export default createHandler', text)
   self.assertIn('olist-logistic-v1', text)
+ def test_delivery_workflow_demo(self):
+  from delivery_workflow_demo import run_demo
+  results = run_demo()
+  self.assertAlmostEqual(results['sp_early']['observed'], 0.156, places=2)
+  self.assertAlmostEqual(results['sp_final']['observed'], 0.333, places=2)
+  self.assertLessEqual(results['sp_early']['lower'], results['sp_final']['observed'])
+  self.assertGreaterEqual(results['sp_early']['upper'], results['sp_final']['observed'])
 
 if __name__=='__main__':unittest.main()
