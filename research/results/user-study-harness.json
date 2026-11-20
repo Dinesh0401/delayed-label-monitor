@@ -1,0 +1,69 @@
+{
+  "participant_id": "DEMO-VERIFY",
+  "consent_version": "2026-11-19-v1",
+  "session_timestamp": "2026-11-20T06:06:23.312049+00:00",
+  "tasks": [
+    {
+      "task_id": 1,
+      "title": "Score a fictitious order",
+      "completed": true,
+      "correct_concept": true,
+      "time_seconds": 45,
+      "confidence_rating": 5,
+      "comments": ""
+    },
+    {
+      "task_id": 2,
+      "title": "Explain exclusion of unresolved outcomes",
+      "completed": true,
+      "correct_concept": true,
+      "time_seconds": 60,
+      "confidence_rating": 4,
+      "comments": ""
+    },
+    {
+      "task_id": 3,
+      "title": "Record outcome and interpret bounds",
+      "completed": true,
+      "correct_concept": true,
+      "time_seconds": 50,
+      "confidence_rating": 4,
+      "comments": ""
+    },
+    {
+      "task_id": 4,
+      "title": "Interpret small cohort accuracy",
+      "completed": true,
+      "correct_concept": true,
+      "time_seconds": 70,
+      "confidence_rating": 5,
+      "comments": ""
+    },
+    {
+      "task_id": 5,
+      "title": "Distinguish collecting evidence from confirmed harm",
+      "completed": true,
+      "correct_concept": true,
+      "time_seconds": 40,
+      "confidence_rating": 4,
+      "comments": ""
+    },
+    {
+      "task_id": 6,
+      "title": "Identify documented research failure",
+      "completed": true,
+      "correct_concept": true,
+      "time_seconds": 55,
+      "confidence_rating": 5,
+      "comments": ""
+    }
+  ],
+  "summary": {
+    "tasks_1_to_3_completion_rate": 1.0,
+    "task_4_correct": true,
+    "meets_completion_criterion": true,
+    "meets_interpretation_criterion": true,
+    "no_fairness_claims_confirmed": true
+  },
+  "study_status": "Protocol & harness verified; pending actual consenting external human participants."
+}

@@ -1,0 +1,68 @@
+{
+  "participant_id": "P-XXXXXX",
+  "consent_version": "2026-11-19-v1",
+  "consent_obtained": false,
+  "date_utc": null,
+  "tasks": [
+    {
+      "task_id": 1,
+      "title": "Score a fictitious order",
+      "prompt": "Enter an order ID, state, purchase time, and delivery deadline to generate a probability.",
+      "completed": false,
+      "time_seconds": null,
+      "confidence_rating": null,
+      "participant_response": "",
+      "evaluator_concept_verified": null
+    },
+    {
+      "task_id": 2,
+      "title": "Explain exclusion of unresolved outcomes",
+      "prompt": "Explain why orders pending delivery are excluded from observed accuracy.",
+      "completed": false,
+      "time_seconds": null,
+      "confidence_rating": null,
+      "participant_response": "",
+      "evaluator_concept_verified": null
+    },
+    {
+      "task_id": 3,
+      "title": "Record outcome and interpret bounds",
+      "prompt": "Record a delivery outcome and interpret the updated [lower, upper] accuracy bounds.",
+      "completed": false,
+      "time_seconds": null,
+      "confidence_rating": null,
+      "participant_response": "",
+      "evaluator_concept_verified": null
+    },
+    {
+      "task_id": 4,
+      "title": "Interpret small cohort accuracy",
+      "prompt": "Explain why 1 correct result out of 1 resolved order with 2 pending does not imply 100% true accuracy.",
+      "completed": false,
+      "time_seconds": null,
+      "confidence_rating": null,
+      "participant_response": "",
+      "evaluator_concept_verified": null
+    },
+    {
+      "task_id": 5,
+      "title": "Distinguish collecting evidence from confirmed harm",
+      "prompt": "Explain the difference between 'collecting_reference' / 'insufficient_data' vs 'harm_evidence' in /api/diagnostics.",
+      "completed": false,
+      "time_seconds": null,
+      "confidence_rating": null,
+      "participant_response": "",
+      "evaluator_concept_verified": null
+    },
+    {
+      "task_id": 6,
+      "title": "Identify documented research failure",
+      "prompt": "Identify at least one documented failure case from research report or documentation.",
+      "completed": false,
+      "time_seconds": null,
+      "confidence_rating": null,
+      "participant_response": "",
+      "evaluator_concept_verified": null
+    }
+  ]
+}

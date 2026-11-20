@@ -7,11 +7,11 @@ class GroupProtectionTests(unittest.TestCase):
         self.report_path = Path('research/GROUP_PROTECTION.md')
 
     def test_report_exists_and_documents_thresholds(self):
-        # We can also check once task-116 finishes or check the file structure
         if self.report_path.exists():
             text = self.report_path.read_text()
-            self.assertIn("Reliable Protection Threshold", text)
-            self.assertIn("Severe Small-Sample Blindspot", text)
+            self.assertIn("Empirical Boundaries of Subgroup Protection", text)
+            self.assertIn("Critical Limitations & Non-Claims", text)
+            self.assertIn("Extreme Small-Sample Deficit", text)
 
     def test_sample_size_monotonicity_logic(self):
         # Mathematically, radius strictly decreases as sample size increases

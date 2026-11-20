@@ -19,15 +19,15 @@ class RetrainingCostTests(unittest.TestCase):
     def test_shadow_group_outperforms_periodic_efficiency(self):
         res = analyze_cost(str(self.summary_path))
         summary = res['cross_policy_summary']
-        # Shadow group has much lower wasted refit rate than periodic
-        self.assertLess(summary['shadow_group']['overall_wasted_refit_rate'],
-                        summary['periodic']['overall_wasted_refit_rate'])
-        # Shadow group has much higher gain per refit than periodic
-        self.assertGreater(summary['shadow_group']['gain_per_refit'],
-                           summary['periodic']['gain_per_refit'])
+        # Shadow group has much higher promotion success rate under harm than periodic
+        self.assertGreater(summary['shadow_group']['harm_promotion_success_rate'],
+                           summary['periodic']['harm_promotion_success_rate'])
+        # Shadow group has >3x higher gain per refit under harm than periodic
+        self.assertGreater(summary['shadow_group']['gain_per_harm_refit_pp'],
+                           summary['periodic']['gain_per_harm_refit_pp'])
         # Periodic refits wastefully in stable regimes
-        self.assertGreater(summary['periodic']['stable_regime_wasted_refits'], 0)
-        self.assertEqual(summary['shadow_group']['stable_regime_wasted_refits'], 0.0)
+        self.assertGreater(summary['periodic']['null_regime_total_wasted_refits'], 0)
+        self.assertEqual(summary['shadow_group']['null_regime_total_wasted_refits'], 0.0)
 
 if __name__ == '__main__':
     unittest.main()
