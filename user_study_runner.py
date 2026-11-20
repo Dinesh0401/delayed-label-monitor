@@ -52,6 +52,49 @@ TASKS = [
     }
 ]
 
+def verify_no_fairness_claims(root_dir=None):
+    """
+    Verifies criterion 3: Zero interface claims of validated fairness or automatic model safety.
+    Scans interface and documentation files for prohibited misleading claims.
+    """
+    root = Path(root_dir or Path(__file__).parent)
+    targets = [root / 'web/index.html', root / 'serving.py', root / 'research/report.html']
+    forbidden = [
+        'guaranteed fairness', '100% fair', 'validated fairness solution',
+        'automatic safety guarantee', 'proven safety'
+    ]
+    for path in targets:
+        if path.exists():
+            text = path.read_text().lower()
+            for phrase in forbidden:
+                if phrase in text:
+                    return False
+    return True
+
+def generate_blank_template():
+    """
+    Generates a blank participant form template without any filled responses.
+    """
+    return {
+        "participant_id": "P-XXXXXX",
+        "consent_version": "2026-11-19-v1",
+        "consent_obtained": False,
+        "date_utc": None,
+        "tasks": [
+            {
+                "task_id": t["id"],
+                "title": t["title"],
+                "prompt": t["description"],
+                "completed": False,
+                "time_seconds": None,
+                "confidence_rating": None,
+                "participant_response": "",
+                "evaluator_concept_verified": None
+            }
+            for t in TASKS
+        ]
+    }
+
 def conduct_session(participant_id=None, consent_given=False, responses=None):
     """
     Evaluates a user study session according to the formal protocol.
@@ -92,8 +135,8 @@ def conduct_session(participant_id=None, consent_given=False, responses=None):
     t4 = next(t for t in recorded_tasks if t["task_id"] == 4)
     crit_2_pass = t4["correct_concept"]
 
-    # 3. Zero interface claims of validated fairness
-    crit_3_pass = True  # Verified by test suite
+    # 3. Zero interface claims of validated fairness (scans actual files)
+    crit_3_pass = verify_no_fairness_claims()
 
     session_record = {
         "participant_id": pid,
@@ -113,7 +156,7 @@ def conduct_session(participant_id=None, consent_given=False, responses=None):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--template', action='store_true', help='Generate blank session template')
+    parser.add_argument('--template', action='store_true', help='Generate blank session form template')
     parser.add_argument('--run-test', action='store_true', help='Execute simulated protocol verification run')
     args = parser.parse_args()
 
@@ -121,7 +164,13 @@ def main():
     out_dir = root / 'research/results'
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    if args.template or args.run_test:
+    if args.template:
+        blank = generate_blank_template()
+        out_file = out_dir / 'blank-user-study-form.json'
+        out_file.write_text(json.dumps(blank, indent=2) + '\n')
+        print("Generated blank participant form template in", out_file)
+
+    if args.run_test:
         sample_responses = {
             1: {"completed": True, "correct_concept": True, "time_seconds": 45, "confidence_rating": 5},
             2: {"completed": True, "correct_concept": True, "time_seconds": 60, "confidence_rating": 4},
@@ -134,7 +183,7 @@ def main():
         out_file = out_dir / 'user-study-harness.json'
         out_file.write_text(json.dumps(res, indent=2) + '\n')
         print("Generated study protocol record in", out_file)
-        print("Protocol criteria met:", res["summary"]["meets_completion_criterion"] and res["summary"]["meets_interpretation_criterion"])
+        print("Protocol criteria met:", res["summary"]["meets_completion_criterion"] and res["summary"]["meets_interpretation_criterion"] and res["summary"]["no_fairness_claims_confirmed"])
 
 if __name__ == '__main__':
     main()
