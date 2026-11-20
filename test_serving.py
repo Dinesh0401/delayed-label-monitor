@@ -40,5 +40,15 @@ class ServingTests(unittest.TestCase):
   self.assertEqual(candidate_model['version'],old_version)
   from serving import MODEL as serving_model
   self.assertIs(candidate_model,serving_model)
+ def test_build_hosted_worker_bundle(self):
+  from build_hosted import build_worker_bundle
+  out_dir = Path(self.tmp.name) / 'worker_dist'
+  js_entry = build_worker_bundle(out_dir)
+  self.assertTrue(js_entry.exists())
+  self.assertTrue((out_dir / 'index.mjs').exists())
+  self.assertTrue((out_dir / 'package.json').exists())
+  text = js_entry.read_text(encoding='utf-8')
+  self.assertIn('export default createHandler', text)
+  self.assertIn('olist-logistic-v1', text)
 
 if __name__=='__main__':unittest.main()

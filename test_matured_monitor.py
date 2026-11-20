@@ -43,11 +43,23 @@ class MaturedMonitorTests(unittest.TestCase):
         from long_tail_study import run_matured
         data = stream(7000, 'long_tail', 8)
         COUNT_CACHE.clear()
-        res = run_matured(data, 'long_tail')
+        res = run_matured(data, 'long_tail', days=120)
         # In long_tail, multiscale detector successfully triggers
         self.assertEqual(res['detected'], 1)
         self.assertEqual(res['eligible'], 1)
         self.assertEqual(res['false_alarm'], 0)
+        # At 120 days, promotion is 0 because 44-day quarantine exceeds day 120
+        self.assertEqual(res['promotions'], 0)
+
+    def test_run_matured_adaptation_success_at_160_days(self):
+        from long_tail_study import run_matured
+        data = stream(7000, 'long_tail', 8, days=160)
+        COUNT_CACHE.clear()
+        res = run_matured(data, 'long_tail', days=160)
+        self.assertEqual(res['detected'], 1)
+        # At 160 days, quarantine completes and candidate model is promoted
+        self.assertEqual(res['promotions'], 1)
+        self.assertLess(res['minority_error'], 0.60)
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,0 +1,39 @@
+{
+  "bias_audit": {
+    "North": {
+      "cohorts": 19,
+      "mean_pending_ratio": 0.7097195495547158,
+      "mean_observed_error": 0.10745938667738723,
+      "mean_posterior_error": 0.09964673487260722,
+      "sandwich_coverage": 1.0
+    },
+    "Other": {
+      "cohorts": 23,
+      "mean_pending_ratio": 0.2797957919196694,
+      "mean_observed_error": 0.03473508508908676,
+      "mean_posterior_error": 0.021317555402379573,
+      "sandwich_coverage": 1.0
+    },
+    "SP": {
+      "cohorts": 23,
+      "mean_pending_ratio": 0.0668740584806532,
+      "mean_observed_error": 0.012958506234458286,
+      "mean_posterior_error": 0.02448457246016892,
+      "sandwich_coverage": 1.0
+    }
+  },
+  "policy_comparison": {
+    "periodic": {
+      "refits_attempted": 5,
+      "promotions": 5,
+      "wasted_refits": 0,
+      "minority_harm_incidents": 2
+    },
+    "shadow_group": {
+      "refits_attempted": 5,
+      "promotions": 0,
+      "wasted_refits": 5,
+      "minority_harm_incidents": 0
+    }
+  }
+}
