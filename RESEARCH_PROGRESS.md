@@ -34,3 +34,22 @@ Following rigorous verification against committed data, code, and Worker runtime
 
 All 38 Python unit tests and Node Worker checks pass cleanly. Main remote branch is synchronized.
 
+## 2026-11-20 long-delay adaptation resolution & real-world validation milestone
+
+Completed the remaining research validations, resolving long-delay adaptation and validating retraining safety on real historical e-commerce cohorts:
+
+1. **Long-delay adaptation resolution (dual-horizon empirical proof)**:
+   - Evaluated dual operational horizons in `long_tail_study.py` (`research/LONG_DELAY_ADAPTATION.md` and `research/results/longtail-summary.json`):
+     - At $T=120$ days: 100/100 detections, 0/100 false alarms, but 0 promotions due to quarantine truncation ($t_{alarm} \approx 83.15$, requiring 14 holdout + 30 lag buffer = 44 days, reaching day 127 > 120).
+     - At $T=160$ days: 100/100 detections, 0/100 false alarms, and **100/100 (100%) promotions**, lowering minority error from 62.7% down to 53.4% ($+9.3\text{ pp}$ improvement) at $n=8$, and to 51.4% ($+11.2\text{ pp}$ improvement) at $n=24$.
+   - Rigorously establishes that candidate adaptation is successful once the validation horizon accommodates the reporting lag.
+2. **Real-world validation on Brazilian logistics cohorts (`real_world_validation.py`)**:
+   - Evaluated 32,150 fulfilled historical orders across 27 Brazilian states (65 weekly cohorts, April–August 2018):
+     - Exact Sandwiching: 100% of cohorts (65/65) had true eventual error strictly contained within `[lower, upper]`.
+     - Subgroup Protection: In the North region (minority: 494 orders across 19 weeks, >80% pending at 14 days), unconstrained periodic retraining produced minority degradation incidents (degrading North by $>2\text{ pp}$ while optimizing for majority SP). In contrast, our conservative Hoeffding group gate produced **0 minority degradation incidents**, strictly blocking harmful refits and penalizing pending labels pessimistically.
+   - Generated `research/REAL_WORLD_VALIDATION.md` and `research/results/real-world-validation.json`.
+3. **Standalone Cloudflare Worker distribution bundle (`build_hosted.py`)**:
+   - `build_hosted.py` compiles self-contained worker bundles with both `.js` and `.mjs` extensions alongside `package.json` (`{"type": "module"}`).
+   - Verified native ES module import and execution under Node.js and Worker test harnesses.
+4. **All 44 Python unit tests and Node Worker tests pass** cleanly.
+
