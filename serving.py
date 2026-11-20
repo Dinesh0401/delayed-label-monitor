@@ -179,10 +179,17 @@ def batch_outcomes(outcomes: list[Delivery]):
     return dict(received=len(outcomes), updated=updated_count)
 
 
+def load_model():
+    new_model = json.loads((ROOT / 'serving-model.json').read_text())
+    MODEL.clear()
+    MODEL.update(new_model)
+    return MODEL
+
+
 @app.post('/api/model/reload')
 def reload_model_endpoint():
-    global MODEL
-    MODEL = json.loads((ROOT / 'serving-model.json').read_text())
+    m = load_model()
+    return dict(reloaded=True, version=m['version'])
     return dict(reloaded=True, version=MODEL['version'])
 
 
