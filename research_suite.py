@@ -7,26 +7,26 @@ DAYS=120; WARM=30; CHANGE=40; WINDOW=28; AGE=9
 SCENARIOS=('stable','reporting_slow','reporting_fast','harm','both','mild','gradual','long_tail','missing')
 POLICIES=('frozen','periodic','arrived_group','cohort_pooled','cohort_group','ungated_group','shadow_group')
 
-def stream(seed,scenario,minority):
-    rng=np.random.default_rng(seed)
-    result=[]
-    for g,n in enumerate((80,minority)):
-        day=np.repeat(np.arange(-WARM,DAYS),n)
-        u=rng.random(len(day));v=rng.random(len(day));missing=rng.random(len(day))
-        rate=np.full(len(day),.12)
-        if g==1:
-            if scenario in ('harm','both','long_tail','missing'):rate[day>=CHANGE]=.88
-            if scenario=='mild':rate[day>=CHANGE]=.35
-            if scenario=='gradual':rate+=.76*np.clip((day-CHANGE)/20,0,1)
-        error=u<rate
-        early=np.where(error,.3,.8)
-        if scenario in ('reporting_slow','both','long_tail','missing'):
-            early=np.where(day>=CHANGE,np.where(error,.08,.45),early)
-        if scenario=='reporting_fast':early=np.where(day>=CHANGE,np.where(error,.9,.3),early)
-        lag=np.where(v<early,1,30 if scenario=='long_tail' else 9)
-        arrival=day+lag
-        if scenario=='missing':arrival=np.where((day>=CHANGE)&(missing<.2),10**6,arrival)
-        result.append((day,error,arrival,n))
+def stream(seed, scenario, minority, days=DAYS):
+    rng = np.random.default_rng(seed)
+    result = []
+    for g, n in enumerate((80, minority)):
+        day = np.repeat(np.arange(-WARM, days), n)
+        u = rng.random(len(day)); v = rng.random(len(day)); missing = rng.random(len(day))
+        rate = np.full(len(day), .12)
+        if g == 1:
+            if scenario in ('harm', 'both', 'long_tail', 'missing'): rate[day >= CHANGE] = .88
+            if scenario == 'mild': rate[day >= CHANGE] = .35
+            if scenario == 'gradual': rate += .76 * np.clip((day - CHANGE) / 20, 0, 1)
+        error = u < rate
+        early = np.where(error, .3, .8)
+        if scenario in ('reporting_slow', 'both', 'long_tail', 'missing'):
+            early = np.where(day >= CHANGE, np.where(error, .08, .45), early)
+        if scenario == 'reporting_fast': early = np.where(day >= CHANGE, np.where(error, .9, .3), early)
+        lag = np.where(v < early, 1, 30 if scenario == 'long_tail' else 9)
+        arrival = day + lag
+        if scenario == 'missing': arrival = np.where((day >= CHANGE) & (missing < .2), 10**6, arrival)
+        result.append((day, error, arrival, n))
     return result
 
 COUNT_CACHE={}
