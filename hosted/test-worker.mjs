@@ -28,6 +28,10 @@ const batchOrders=[
 const bRes=await req('batch-orders',batchOrders);
 assert.equal(bRes.status,200);assert.equal(bRes.data.inserted,2);
 
+// Retry duplicate batch orders must report inserted: 0
+const bRetryRes=await req('batch-orders',batchOrders);
+assert.equal(bRetryRes.status,200);assert.equal(bRetryRes.data.inserted,0);
+
 // Batch outcomes rejecting future deliveries (e.g. 2099)
 const bOutFuture=[{id:'BATCH-2',delivered:'2099-01-01T00:00:00Z'}];
 const bOutFutRes=await req('batch-outcomes',bOutFuture);
