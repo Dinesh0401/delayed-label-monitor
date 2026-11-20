@@ -32,5 +32,13 @@ class ServingTests(unittest.TestCase):
  def test_calendar_features(self):
   x=vector('SP',datetime(2026,1,5,12,tzinfo=timezone.utc),datetime(2026,1,6,12,tzinfo=timezone.utc))
   self.assertEqual(x[:4],[1,0,1,12])
+ def test_model_reload_mutates_existing_dict_reference(self):
+  from candidate_retrain import MODEL as candidate_model
+  old_version=candidate_model['version']
+  r=self.client.post('/api/model/reload')
+  self.assertEqual(r.status_code,200)
+  self.assertEqual(candidate_model['version'],old_version)
+  from serving import MODEL as serving_model
+  self.assertIs(candidate_model,serving_model)
 
 if __name__=='__main__':unittest.main()
