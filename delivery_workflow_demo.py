@@ -6,6 +6,10 @@ Demonstrates the core MLOps life cycle on a disposable, isolated SQLite database
 3. Full delayed-outcome resolution (/api/outcomes).
 4. Verification that final observed accuracy is strictly contained in the early missing-outcome range.
 
+Note:
+    This 60-order replay is a synthetic demonstration showing 15.6% -> 33.3% accuracy convergence.
+    The separate historical Olist benchmark evaluated 32,150 real orders across 27 Brazilian states.
+
 Run directly:
     python delivery_workflow_demo.py
 """

@@ -1,6 +1,21 @@
-# Delayed Label Monitor
+# Delayed Label Monitor — MLOps Monitoring for Delayed Outcomes
 
-A personal ML reliability research project for engineers deciding when a deployed prediction service needs investigation. A small delivery region is the initial simulated population.
+A production-style MLOps reliability monitoring and drift-detection platform for prediction services operating under delayed ground-truth feedback (e-commerce delivery logistics).
+
+## Quick Interview Demo (Reproducible 60-Order Replay)
+
+Run the standalone end-to-end replay in an isolated disposable database:
+
+```sh
+python delivery_workflow_demo.py
+```
+
+This demonstrates why measuring accuracy strictly on early-arrived reports can be misleading:
+- **Early Selection Bias**: Early reports in São Paulo showed **15.6% observed accuracy** among fast-reporting couriers.
+- **Exact Sandwich Bounds**: While outcomes were in-transit, the monitor computed an exact missing-outcome bound of **[10.4%, 43.8%]**, preventing knee-jerk model retraining.
+- **Final Convergence**: Once all delivery outcomes matured, verified accuracy settled at **33.3%**, strictly inside the early bounds.
+
+*(Note: The 15.6% → 33.3% result is from this 60-order synthetic replay. The separate historical Olist study analyzed 32,150 real orders across 27 Brazilian states to study logistical reporting delays.)*
 
 ## Research question
 
