@@ -25,8 +25,8 @@ This study rigorously establishes the exact causal mechanism: **prospective quar
 
 | Operational Horizon | Scenario | Detections | False Alarms | Mean Delay (d) | Model Promotions | Minority Error |
 |---|---|---|---|---|---|---|
-| **120 Days (Standard)** | `long_tail` | 20/20 | 0/100 | 42.70 | **0.00** (0%) | 63.0% |
-| **160 Days (Full Quarantine)** | `long_tail` | 20/20 | 0/100 | 43.55 | **1.00** (100%) | **53.2%** |
+| **120 Days (Standard)** | `long_tail` | 100/100 | 0/100 | 43.15 | **0.00** (0%) | 62.7% |
+| **160 Days (Full Quarantine)** | `long_tail` | 100/100 | 0/100 | 43.23 | **1.00** (100%) | **53.4%** |
 
 ## Key Findings
 
