@@ -1,0 +1,57 @@
+{
+  "days": 160,
+  "seed_range": [
+    11000,
+    11099
+  ],
+  "rows": [
+    {
+      "minority_per_day": 2,
+      "regime": "stable",
+      "false_alarm_runs": 0,
+      "refits": 0,
+      "promotions": 0,
+      "pending_fraction": 0.07625
+    },
+    {
+      "minority_per_day": 2,
+      "regime": "reporting_slow_30",
+      "false_alarm_runs": 0,
+      "refits": 0,
+      "promotions": 0,
+      "pending_fraction": 0.6017857142857143
+    },
+    {
+      "minority_per_day": 8,
+      "regime": "stable",
+      "false_alarm_runs": 0,
+      "refits": 0,
+      "promotions": 0,
+      "pending_fraction": 0.07491071428571429
+    },
+    {
+      "minority_per_day": 8,
+      "regime": "reporting_slow_30",
+      "false_alarm_runs": 0,
+      "refits": 0,
+      "promotions": 0,
+      "pending_fraction": 0.5960714285714286
+    },
+    {
+      "minority_per_day": 24,
+      "regime": "stable",
+      "false_alarm_runs": 0,
+      "refits": 0,
+      "promotions": 0,
+      "pending_fraction": 0.07404761904761904
+    },
+    {
+      "minority_per_day": 24,
+      "regime": "reporting_slow_30",
+      "false_alarm_runs": 0,
+      "refits": 0,
+      "promotions": 0,
+      "pending_fraction": 0.5949107142857143
+    }
+  ]
+}
