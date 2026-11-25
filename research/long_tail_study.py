@@ -39,6 +39,8 @@ def run_matured(
     scenario: str,
     days: int = DAYS,
     trace: Optional[list[dict[str, Any]]] = None,
+    *,
+    validation_buffer: int | None = None,
 ) -> dict[str, Any]:
     """Run the multiscale matured shadow policy over a specified time horizon.
 
@@ -52,11 +54,19 @@ def run_matured(
         scenario: Drift scenario name ('stable', 'long_tail', 'both', 'harm', etc.).
         days: Total operational horizon length in days (e.g. 120 or 160).
         trace: Optional list to append detailed lifecycle trace events.
+        validation_buffer: Fixed reporting wait after holdout collection. None
+            preserves the original scenario-specific buffer.
 
     Returns:
         Dictionary with false_alarm, eligible, detected, capped_delay,
         majority_error, minority_error, refits, promotions, unchanged_refits.
     """
+    if validation_buffer is not None and validation_buffer < 0:
+        raise ValueError("validation_buffer must be nonnegative")
+    buffer = validation_buffer
+    if buffer is None:
+        buffer = MATURE_AGE if scenario == "long_tail" else AGE
+
     model = [0, 0]
     attempts = [0, 0]
     promotions = [0, 0]
@@ -87,8 +97,7 @@ def run_matured(
             # 1. Prospective shadow model evaluation
             if shadow[g] is not None:
                 candidate, opened = shadow[g]
-                val_buffer = MATURE_AGE if scenario == "long_tail" else AGE
-                if t >= opened + 14 + val_buffer:
+                if t >= opened + 14 + buffer:
                     valid = (day >= opened) & (day < opened + 14)
                     seen = valid & (arrival <= t)
                     gain = int(

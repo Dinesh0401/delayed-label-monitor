@@ -1,0 +1,129 @@
+{
+  "days": 160,
+  "seed_range": [
+    12000,
+    12099
+  ],
+  "rows": [
+    {
+      "scenario": "harm",
+      "minority_per_day": 2,
+      "buffer_days": 9,
+      "runs": 100,
+      "detections": 100,
+      "minority_promotions": 21,
+      "mean_promotion_day": 110.71428571428571,
+      "minority_error": 0.64115625
+    },
+    {
+      "scenario": "harm",
+      "minority_per_day": 2,
+      "buffer_days": 30,
+      "runs": 100,
+      "detections": 100,
+      "minority_promotions": 14,
+      "mean_promotion_day": 128.85714285714286,
+      "minority_error": 0.6696562499999998
+    },
+    {
+      "scenario": "harm",
+      "minority_per_day": 2,
+      "buffer_days": 45,
+      "runs": 100,
+      "detections": 100,
+      "minority_promotions": 10,
+      "mean_promotion_day": 132.2,
+      "minority_error": 0.6770312499999999
+    },
+    {
+      "scenario": "harm",
+      "minority_per_day": 8,
+      "buffer_days": 9,
+      "runs": 100,
+      "detections": 100,
+      "minority_promotions": 100,
+      "mean_promotion_day": 85.42,
+      "minority_error": 0.3350390625
+    },
+    {
+      "scenario": "harm",
+      "minority_per_day": 8,
+      "buffer_days": 30,
+      "runs": 100,
+      "detections": 100,
+      "minority_promotions": 100,
+      "mean_promotion_day": 106.42,
+      "minority_error": 0.43425781249999995
+    },
+    {
+      "scenario": "harm",
+      "minority_per_day": 8,
+      "buffer_days": 45,
+      "runs": 100,
+      "detections": 100,
+      "minority_promotions": 100,
+      "mean_promotion_day": 121.42,
+      "minority_error": 0.5055078125000001
+    },
+    {
+      "scenario": "long_tail",
+      "minority_per_day": 2,
+      "buffer_days": 9,
+      "runs": 100,
+      "detections": 100,
+      "minority_promotions": 0,
+      "mean_promotion_day": null,
+      "minority_error": 0.69003125
+    },
+    {
+      "scenario": "long_tail",
+      "minority_per_day": 2,
+      "buffer_days": 30,
+      "runs": 100,
+      "detections": 100,
+      "minority_promotions": 10,
+      "mean_promotion_day": 138.0,
+      "minority_error": 0.67946875
+    },
+    {
+      "scenario": "long_tail",
+      "minority_per_day": 2,
+      "buffer_days": 45,
+      "runs": 100,
+      "detections": 100,
+      "minority_promotions": 10,
+      "mean_promotion_day": 153.0,
+      "minority_error": 0.68634375
+    },
+    {
+      "scenario": "long_tail",
+      "minority_per_day": 8,
+      "buffer_days": 9,
+      "runs": 100,
+      "detections": 100,
+      "minority_promotions": 0,
+      "mean_promotion_day": null,
+      "minority_error": 0.6892890625
+    },
+    {
+      "scenario": "long_tail",
+      "minority_per_day": 8,
+      "buffer_days": 30,
+      "runs": 100,
+      "detections": 100,
+      "minority_promotions": 100,
+      "mean_promotion_day": 127.42,
+      "minority_error": 0.5336640625000001
+    },
+    {
+      "scenario": "long_tail",
+      "minority_per_day": 8,
+      "buffer_days": 45,
+      "runs": 100,
+      "detections": 100,
+      "minority_promotions": 100,
+      "mean_promotion_day": 142.42,
+      "minority_error": 0.6055078125
+    }
+  ]
+}
