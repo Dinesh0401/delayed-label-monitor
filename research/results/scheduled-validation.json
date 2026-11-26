@@ -1,0 +1,119 @@
+{
+  "days": 160,
+  "seeds": [
+    13000,
+    13099
+  ],
+  "schedules": {
+    "fixed_9": [
+      9
+    ],
+    "fixed_30": [
+      30
+    ],
+    "scheduled": [
+      9,
+      16,
+      23,
+      30
+    ]
+  },
+  "rows": [
+    {
+      "scenario": "harm",
+      "minority_per_day": 2,
+      "policy": "fixed_9",
+      "minority_error": 0.63353125,
+      "minority_promotions": 21,
+      "mean_promotion_day": 103.57142857142857
+    },
+    {
+      "scenario": "harm",
+      "minority_per_day": 2,
+      "policy": "fixed_30",
+      "minority_error": 0.65765625,
+      "minority_promotions": 20,
+      "mean_promotion_day": 125.75
+    },
+    {
+      "scenario": "harm",
+      "minority_per_day": 2,
+      "policy": "scheduled",
+      "minority_error": 0.62915625,
+      "minority_promotions": 29,
+      "mean_promotion_day": 116.10344827586206
+    },
+    {
+      "scenario": "harm",
+      "minority_per_day": 8,
+      "policy": "fixed_9",
+      "minority_error": 0.3354140625,
+      "minority_promotions": 100,
+      "mean_promotion_day": 85.16
+    },
+    {
+      "scenario": "harm",
+      "minority_per_day": 8,
+      "policy": "fixed_30",
+      "minority_error": 0.43563281249999997,
+      "minority_promotions": 100,
+      "mean_promotion_day": 106.16
+    },
+    {
+      "scenario": "harm",
+      "minority_per_day": 8,
+      "policy": "scheduled",
+      "minority_error": 0.3354140625,
+      "minority_promotions": 100,
+      "mean_promotion_day": 85.16
+    },
+    {
+      "scenario": "long_tail",
+      "minority_per_day": 2,
+      "policy": "fixed_9",
+      "minority_error": 0.69078125,
+      "minority_promotions": 0,
+      "mean_promotion_day": null
+    },
+    {
+      "scenario": "long_tail",
+      "minority_per_day": 2,
+      "policy": "fixed_30",
+      "minority_error": 0.6849062499999999,
+      "minority_promotions": 6,
+      "mean_promotion_day": 139.5
+    },
+    {
+      "scenario": "long_tail",
+      "minority_per_day": 2,
+      "policy": "scheduled",
+      "minority_error": 0.6849062499999999,
+      "minority_promotions": 6,
+      "mean_promotion_day": 139.5
+    },
+    {
+      "scenario": "long_tail",
+      "minority_per_day": 8,
+      "policy": "fixed_9",
+      "minority_error": 0.6908203125,
+      "minority_promotions": 0,
+      "mean_promotion_day": null
+    },
+    {
+      "scenario": "long_tail",
+      "minority_per_day": 8,
+      "policy": "fixed_30",
+      "minority_error": 0.5351484375,
+      "minority_promotions": 100,
+      "mean_promotion_day": 127.16
+    },
+    {
+      "scenario": "long_tail",
+      "minority_per_day": 8,
+      "policy": "scheduled",
+      "minority_error": 0.5351484375,
+      "minority_promotions": 100,
+      "mean_promotion_day": 127.16
+    }
+  ]
+}

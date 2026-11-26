@@ -41,6 +41,7 @@ def run_matured(
     trace: Optional[list[dict[str, Any]]] = None,
     *,
     validation_buffer: int | None = None,
+    validation_schedule: tuple[int, ...] | None = None,
 ) -> dict[str, Any]:
     """Run the multiscale matured shadow policy over a specified time horizon.
 
@@ -56,6 +57,8 @@ def run_matured(
         trace: Optional list to append detailed lifecycle trace events.
         validation_buffer: Fixed reporting wait after holdout collection. None
             preserves the original scenario-specific buffer.
+        validation_schedule: Increasing waits after holdout collection. The
+            per-candidate error budget is divided among the scheduled looks.
 
     Returns:
         Dictionary with false_alarm, eligible, detected, capped_delay,
@@ -66,6 +69,15 @@ def run_matured(
     buffer = validation_buffer
     if buffer is None:
         buffer = MATURE_AGE if scenario == "long_tail" else AGE
+
+    if validation_schedule is not None:
+        if validation_buffer is not None:
+            raise ValueError("choose either a validation buffer or a schedule")
+        if (not validation_schedule or validation_schedule[0] < 0
+                or tuple(sorted(set(validation_schedule))) != validation_schedule):
+            raise ValueError("validation_schedule must be increasing and nonnegative")
+    waits = validation_schedule if validation_schedule is not None else (buffer,)
+    promotion_alpha = 0.05 / (2 * days * 2 * 2 * len(waits))
 
     model = [0, 0]
     attempts = [0, 0]
@@ -97,7 +109,8 @@ def run_matured(
             # 1. Prospective shadow model evaluation
             if shadow[g] is not None:
                 candidate, opened = shadow[g]
-                if t >= opened + 14 + buffer:
+                wait = t - opened - 14
+                if wait in waits:
                     valid = (day >= opened) & (day < opened + 14)
                     seen = valid & (arrival <= t)
                     gain = int(
@@ -106,14 +119,15 @@ def run_matured(
                     )
                     pending = int(valid.sum() - seen.sum())
                     lower = promotion_bound(
-                        gain, pending, int(valid.sum()), 0.05 / (2 * days * 2 * 2)
+                        gain, pending, int(valid.sum()), promotion_alpha
                     )
                     if lower > 0.02:
                         model[g] = candidate
                         promotions[g] += 1
                         if trace is not None:
                             trace.append(dict(action="promote", group=g, day=t, opened=opened))
-                    shadow[g] = None
+                    if promotions[g] or wait == waits[-1]:
+                        shadow[g] = None
 
             # 2. On alarm, train candidate on the most recent matured cohort
             if (
